@@ -1,0 +1,47 @@
+<link href="css/landuse.css" rel="stylesheet">
+<ion-view view-title="Slope" cache-view="false"> <ion-nav-buttons
+    side="left"> <a align="left" class="button icon"
+    ng-click="completeAddPlot_Slope();">{{plot_name}} Details</a> </ion-nav-buttons> 
+    <ion-content class="padding"> 
+      
+<p align="center">
+      <a  class="button icon" 
+		id="btnUseSlopeMeter">Use Slope Meter</a>
+		     </p>
+        <p align="center">
+         <text align="center" id="txtSlopeMeter"> <b>or </b></text>
+    </p>
+          <br/>
+         <div class="row">
+               <div class="col col-50 ctn box">
+                    <img class="content" ng-src="{{slope_flat}}" ng-click="select_S_Grazing('cattle')"/>
+               </div>
+               <div class="col col-50 ctn box">
+                    <img class="content" ng-src="{{slope_gentle}}" ng-click="select_LandUse_Grazing('goat')"/>
+               </div>
+         </div>
+          <div class="row">
+               <div class="col col-50 ctn box">
+                    <img class="content" ng-src="{{slope_moderate}}" ng-click="select_LandUse_Grazing('cattle')"/>
+               </div>
+               <div class="col col-50 ctn box">
+                    <img class="content" ng-src="{{slope_rolling}}" ng-click="select_LandUse_Grazing('goat')"/>
+               </div>
+         </div>
+          <div class="row">
+               <div class="col col-50 ctn box">
+                    <img class="content" ng-src="{{slope_hilly}}" ng-click="select_LandUse_Grazing('sheep')"/>
+               </div>
+               <div class="col col-50 ctn box">
+                    <img class="content" ng-src="{{slope_steep}}" ng-click="select_LandUse_Grazing('wildlife')"/>
+               </div>
+         </div>
+
+         <div class="row">
+               <div class="col col-50 ctn box">
+                    <img class="content" ng-src="{{slope_verysteep}}" ng-click="select_LandUse_Grazing('sheep')"/>
+               </div>
+              
+         </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="plugins/cordova-plugin-splashscreen/src/blackberry10/|platforms/android/cordova/node_modules/q/benchmark/|www/lib/ionic/js/angular-ui/|plugins/cordova-plugin-device/src/windows/|platforms/android/platform_www/cordova-js-src/android/|platforms/android/build/intermediates/assets/debug/www/cordova-js-src/|plugins/cordova-plugin-console/tests/|plugins/cordova-plugin-splashscreen/src/tizen/|platforms/android/cordova/node_modules/nopt/lib/|plugins/com.ionic.keyboard/src/blackberry10/|platforms/android/cordova/lib/|plugins/cordova-plugin-splashscreen/www/|plugins/com.ionic.keyboard/www/|platforms/android/cordova/node_modules/which/|plugins/cordova-plugin-splashscreen/www/windows/|platforms/android/build/intermediates/assets/debug/www/plugins/cordova-plugin-whitelist/|platforms/android/build/intermediates/assets/debug/www/plugins/cordova-plugin-splashscreen/www/|www/js/|platforms/android/build/intermediates/assets/debug/www/plugins/cordova-plugin-console/www/|platforms/android/build/intermediates/assets/debug/www/plugins/com.ionic.keyboard/www/|platforms/android/build/intermediates/assets/debug/www/cordova-js-src/plugin/android/|plugins/cordova-plugin-whitelist/|platforms/android/build/intermediates/assets/debug/www/plugins/cordova-plugin-device/www/|platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/|platforms/android/build/intermediates/assets/debug/www/|platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/angular/|platforms/android/build/intermediates/assets/debug/www/cordova-js-src/android/|plugins/cordova-plugin-splashscreen/src/browser/|platforms/android/cordova/node_modules/nopt/node_modules/abbrev/|platforms/android/cordova/node_modules/q/|plugins/cordova-plugin-device/src/ubuntu/|platforms/android/platform_www/|www/lib/ionic/js/angular/|platforms/android/cordova/node_modules/shelljs/|platforms/android/build/intermediates/assets/debug/www/js/|plugins/cordova-plugin-console/www/|plugins/cordova-plugin-device/tests/|platforms/android/cordova/node_modules/shelljs/scripts/|www/lib/ionic/js/|plugins/cordova-plugin-device/src/firefoxos/|platforms/android/platform_www/cordova-js-src/plugin/android/|plugins/cordova-plugin-device/www/|plugins/cordova-plugin-splashscreen/tests/|hooks/after_prepare/|plugins/cordova-plugin-device/src/browser/|platforms/android/platform_www/cordova-js-src/|platforms/android/cordova/node_modules/shelljs/src/|platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/angular-ui/|plugins/cordova-plugin-device/src/blackberry10/|plugins/cordova-plugin-device/src/tizen/" kind="src" path=""/>
+	<classpathentry kind="src" path="hooks/after_prepare"/>
+	<classpathentry excluding="cordova-js-src/|plugins/cordova-plugin-whitelist/|plugins/cordova-plugin-splashscreen/www/|plugins/cordova-plugin-console/www/|plugins/com.ionic.keyboard/www/|cordova-js-src/plugin/android/|plugins/cordova-plugin-device/www/|lib/ionic/js/|lib/ionic/js/angular/|cordova-js-src/android/|js/|lib/ionic/js/angular-ui/" kind="src" path="platforms/android/build/intermediates/assets/debug/www"/>
+	<classpathentry excluding="plugin/android/|android/" kind="src" path="platforms/android/build/intermediates/assets/debug/www/cordova-js-src"/>
+	<classpathentry kind="src" path="platforms/android/build/intermediates/assets/debug/www/cordova-js-src/android"/>
+	<classpathentry kind="src" path="platforms/android/build/intermediates/assets/debug/www/cordova-js-src/plugin/android"/>
+	<classpathentry kind="src" path="platforms/android/build/intermediates/assets/debug/www/js"/>
+	<classpathentry excluding="angular/|angular-ui/" kind="src" path="platforms/android/build/intermediates/assets/debug/www/lib/ionic/js"/>
+	<classpathentry kind="src" path="platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/angular"/>
+	<classpathentry kind="src" path="platforms/android/build/intermediates/assets/debug/www/lib/ionic/js/angular-ui"/>
+	<classpathentry kind="src" path="platforms/android/build/intermediates/assets/debug/www/plugins/com.ionic.keyboard/www"/>
+	<classpathentry kind="src" path="platforms/android/build/intermediates/assets/debug/www/plugins/cordova-plugin-console/www"/>
+	<classpathentry kind="src" path="platforms/android/build/intermediates/assets/debug/www/plugins/cordova-plugin-device/www"/>
+	<classpathentry kind="src" path="platforms/android/build/intermediates/assets/debug/www/plugins/cordova-plugin-splashscreen/www"/>
+	<classpathentry kind="src" path="platforms/android/build/intermediates/assets/debug/www/plugins/cordova-plugin-whitelist"/>
+	<classpathentry kind="src" path="platforms/android/cordova/lib"/>
+	<classpathentry kind="src" path="platforms/android/cordova/node_modules/nopt/lib"/>
+	<classpathentry kind="src" path="platforms/android/cordova/node_modules/nopt/node_modules/abbrev"/>
+	<classpathentry excluding="benchmark/" kind="src" path="platforms/android/cordova/node_modules/q"/>
+	<classpathentry kind="src" path="platforms/android/cordova/node_modules/q/benchmark"/>
+	<classpathentry excluding="scripts/|src/" kind="src" path="platforms/android/cordova/node_modules/shelljs"/>
+	<classpathentry kind="src" path="platforms/android/cordova/node_modules/shelljs/scripts"/>
+	<classpathentry kind="src" path="platforms/android/cordova/node_modules/shelljs/src"/>
+	<classpathentry kind="src" path="platforms/android/cordova/node_modules/which"/>
+	<classpathentry excluding="cordova-js-src/android/|cordova-js-src/plugin/android/|cordova-js-src/" kind="src" path="platforms/android/platform_www"/>
+	<classpathentry excluding="android/|plugin/android/" kind="src" path="platforms/android/platform_www/cordova-js-src"/>
+	<classpathentry kind="src" path="platforms/android/platform_www/cordova-js-src/android"/>
+	<classpathentry kind="src" path="platforms/android/platform_www/cordova-js-src/plugin/android"/>
+	<classpathentry kind="src" path="plugins/com.ionic.keyboard/src/blackberry10"/>
+	<classpathentry kind="src" path="plugins/com.ionic.keyboard/www"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-console/tests"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-console/www"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-device/src/blackberry10"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-device/src/browser"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-device/src/firefoxos"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-device/src/tizen"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-device/src/ubuntu"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-device/src/windows"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-device/tests"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-device/www"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-splashscreen/src/blackberry10"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-splashscreen/src/browser"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-splashscreen/src/tizen"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-splashscreen/tests"/>
+	<classpathentry excluding="windows/" kind="src" path="plugins/cordova-plugin-splashscreen/www"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-splashscreen/www/windows"/>
+	<classpathentry kind="src" path="plugins/cordova-plugin-whitelist"/>
+	<classpathentry kind="src" path="www/js"/>
+	<classpathentry excluding="angular-ui/|angular/" kind="src" path="www/lib/ionic/js"/>
+	<classpathentry kind="src" path="www/lib/ionic/js/angular"/>
+	<classpathentry kind="src" path="www/lib/ionic/js/angular-ui"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

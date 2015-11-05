@@ -1,0 +1,32 @@
+<link href="css/landuse.css" rel="stylesheet">
+<ion-view view-title="LAND USE" cache-view="false"> <ion-nav-buttons
+    side="left"> <a align="left" class="button icon"
+    ng-click="completeAddPlot_LandUse();">{{plot_name}} Details</a> </ion-nav-buttons> 
+    <ion-content class="padding"> 
+        <div class="row divider_bottom">
+               <div class="col col-50 ctn box">
+                    <img class="content" ng-src="{{landuse_current_grazed}}" ng-click="select_LandUse_Grazed('grazed')"/>
+               </div>
+               <div class="col col-50 ctn box">
+                    <img class="content" ng-src="{{landuse_current_not_grazed}}" ng-click="select_LandUse_Grazed('not_grazed')"/>
+               </div>
+         </div>
+         <br/>
+         <div class="row">
+               <div class="col col-50 ctn box">
+                    <img class="content" ng-src="{{landuse_current_cattle}}" ng-click="select_LandUse_Grazing('cattle')"/>
+               </div>
+               <div class="col col-50 ctn box">
+                    <img class="content" ng-src="{{landuse_current_goat}}" ng-click="select_LandUse_Grazing('goat')"/>
+               </div>
+         </div>
+          <div class="row">
+               <div class="col col-50 ctn box">
+                    <img class="content" ng-src="{{landuse_current_sheep}}" ng-click="select_LandUse_Grazing('sheep')"/>
+               </div>
+               <div class="col col-50 ctn box">
+                    <img class="content" ng-src="{{landuse_current_wildlife}}" ng-click="select_LandUse_Grazing('wildlife')"/>
+               </div>
+         </div>
+    </ion-content>
+</ion-view>
