@@ -1,0 +1,285 @@
+ <link href="css/transect_cover.css" rel="stylesheet">
+ <link href="css/tab.css" rel="stylesheet">
+
+ <ion-view view-title="" hide-back-button="true" cache-view="false">
+
+ <!--<ion-nav-title style="padding-left:0px">
+    	<a align="left"
+         class="button button-icon ion-ios-arrow-back"
+         ng-click="completeAddData_Transect();"
+         style="padding-left:0px;padding-top:5px;width:3px"></a>
+    	<a align="left" class="button button-icon"
+       		ng-click="completeAddData_Transect();" style="padding-left:0px">
+          <img src="img/ic_launcher.png" class="title-image" align="left">
+          <p style="padding-top:5px">&nbsp;{{plot_name}}-{{transect_direction}},{{segment}}</p>
+      </a>
+ </ion-nav-title>-->
+
+   <ion-nav-buttons side="left">
+    <a align="right" class="button button-icon ion-ios-arrow-back" ng-click="completeAddData_Transect();">Back</a>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right" >
+
+	    <a class="tab-item active" href="#" style="width:100px;padding-top:5px;border-right: solid white;">
+        <img ng-src="{{cover_status_img_src}}" style="width:20px; height:20px;"/>
+        <b>COVER</b>
+      </a>
+      <a class="tab-item"  ng-click="gotoTransectHeightGap();" style="width:100px;padding-top:5px">
+        <img ng-src="{{height_gap_status_img_src}}" style="width:20px; height:20px"/>
+        <b>HEIGHT/GAP</b>
+      </a>
+  </ion-nav-buttons>
+  <!--
+  <div class="tabs tabs-striped tabs-top tabs-background-stable tabs-color-positive">
+      <a class="tab-item active" href="#/landcover/transect_cover">
+        <img ng-src="{{cover_status_img_src}}" class="title-image1" style="width:30%; height:60%"/>
+        <b>COVER</b>
+      </a>
+      <a class="tab-item"  ng-click="gotoTransectHeightGap();">
+        <img ng-src="{{height_gap_status_img_src}}" class="title-image1" style="width:30%; height:60%"/>
+        <b>HEIGHT/GAP</b>
+      </a>
+  </div>
+  -->
+  <div>
+
+    <!-- <ion-content class="padding body" overflow-scroll="true" on-swipe-left="gotoTransectHeightGap();"> -->
+    <ion-content class="padding body"  on-swipe-left="gotoTransectHeightGap();">
+    <!--   <br/><br/><br/> -->
+
+    <br/>
+
+    <div class="row" style="height:70px;">
+         <div class="col" align="center">
+                  <img  src="media/transect_cover_img/Stick.png" style="width:100%;height:50%" />
+         </div>
+
+    </div>
+
+    <!--
+    <div class="row" style="height:70px;">
+               <div class="col col-20" align="center">
+                  <img class="content" src="media/transect_cover_img/Stick_Left.png" style="width:105%;height:50%" />
+               </div>
+               <div class="col col-20" align="center">
+                  <img class="content" src="media/transect_cover_img/Stick_Middle.png" style="width:105%;height:50%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img class="content" src="media/transect_cover_img/Stick_Middle.png" style="width:105%;height:50%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img class="content" src="media/transect_cover_img/Stick_Middle.png" style="width:105%;height:50%" />
+               </div>
+               <div class="col col-20" align="center">
+                  <img class="content" src="media/transect_cover_img/Stick_Right.png" style="width:105%;height:50%" />
+               </div>
+
+    </div>
+    -->
+
+
+    <div class="row" style="height:50px;">
+               <div class="col col-20" align="center">
+                  <b>{{label_10cm}}</b>
+               </div>
+                <div class="col col-20" align="center">
+                  <b>{{label_30cm}}</b>
+               </div>
+               <div class="col col-20" align="center">
+                  <b>{{label_50cm}}</b>
+               </div>
+                <div class="col col-20" align="center">
+                  <b>{{label_70cm}}</b>
+               </div>
+                <div class="col col-20" align="center">
+                  <b>{{label_90cm}}</b>
+               </div>
+
+    </div>
+     <div class="row" style="height:100px;">
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_1_bare_image}}" ng-click="select_Bare('STICK_1')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_2_bare_image}}" ng-click="select_Bare('STICK_2')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_3_bare_image}}" ng-click="select_Bare('STICK_3')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_4_bare_image}}" ng-click="select_Bare('STICK_4')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_5_bare_image}}" ng-click="select_Bare('STICK_5')" style="width:92%; height:95%" />
+               </div>
+
+    </div>
+    <hr class="horizontalbreak">
+     <div class="row" style="height:100px;">
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_1_tree_image}}" ng-click="select_Tree('STICK_1')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_2_tree_image}}" ng-click="select_Tree('STICK_2')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_3_tree_image}}" ng-click="select_Tree('STICK_3')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_4_tree_image}}" ng-click="select_Tree('STICK_4')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_5_tree_image}}" ng-click="select_Tree('STICK_5')" style="width:92%; height:95%" />
+               </div>
+
+    </div>
+    <div class="row" style="height:100px;">
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_1_shrub_image}}" ng-click="select_Shrub('STICK_1')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_2_shrub_image}}" ng-click="select_Shrub('STICK_2')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_3_shrub_image}}" ng-click="select_Shrub('STICK_3')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_4_shrub_image}}" ng-click="select_Shrub('STICK_4')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_5_shrub_image}}" ng-click="select_Shrub('STICK_5')" style="width:92%; height:95%" />
+               </div>
+
+    </div>
+    <div class="row" style="height:100px;">
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_1_sub_shrub_image}}" ng-click="select_Sub_Shrub('STICK_1')"  style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_2_sub_shrub_image}}" ng-click="select_Sub_Shrub('STICK_2')"  style="width:92%; height:95%"/>
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_3_sub_shrub_image}}" ng-click="select_Sub_Shrub('STICK_3')"  style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_4_sub_shrub_image}}" ng-click="select_Sub_Shrub('STICK_4')"  style="width:92%; height:95%"/>
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_5_sub_shrub_image}}" ng-click="select_Sub_Shrub('STICK_5')"  style="width:92%; height:95%" />
+               </div>
+
+    </div>
+    <div class="row" style="height:100px;">
+                <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_1_plant_base_image}}" ng-click="select_plant_base('STICK_1')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_2_plant_base_image}}" ng-click="select_plant_base('STICK_2')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_3_plant_base_image}}" ng-click="select_plant_base('STICK_3')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_4_plant_base_image}}" ng-click="select_plant_base('STICK_4')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_5_plant_base_image}}" ng-click="select_plant_base('STICK_5')" style="width:92%; height:95%" />
+               </div>
+
+    </div>
+    <div class="row" style="height:100px;">
+                <div class="col col-20" align="center">
+                   <img ng-src="{{stick_segment_1_perennial_grass_image}}" ng-click="select_perennial_grass('STICK_1')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_2_perennial_grass_image}}" ng-click="select_perennial_grass('STICK_2')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_3_perennial_grass_image}}" ng-click="select_perennial_grass('STICK_3')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_4_perennial_grass_image}}" ng-click="select_perennial_grass('STICK_4')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_5_perennial_grass_image}}" ng-click="select_perennial_grass('STICK_5')" style="width:92%; height:95%" />
+               </div>
+
+    </div>
+    <div class="row" style="height:100px;">
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_1_annual_grass_image}}" ng-click="select_annual_grass('STICK_1')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_2_annual_grass_image}}" ng-click="select_annual_grass('STICK_2')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_3_annual_grass_image}}" ng-click="select_annual_grass('STICK_3')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_4_annual_grass_image}}" ng-click="select_annual_grass('STICK_4')" style="width:92%; height:95%"/>
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_5_annual_grass_image}}" ng-click="select_annual_grass('STICK_5')" style="width:92%; height:95%" />
+               </div>
+
+    </div>
+    <div class="row" style="height:100px;">
+              <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_1_herb_image}}" ng-click="select_herb('STICK_1')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_2_herb_image}}" ng-click="select_herb('STICK_2')" style="width:92%; height:95%"/>
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_3_herb_image}}" ng-click="select_herb('STICK_3')" style="width:92%; height:95%"/>
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_4_herb_image}}" ng-click="select_herb('STICK_4')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img  ng-src="{{stick_segment_5_herb_image}}" ng-click="select_herb('STICK_5')" style="width:92%; height:95%" />
+               </div>
+
+    </div>
+    <div class="row" style="height:100px;">
+               <div class="col col-20" align="center">
+                   <img ng-src="{{stick_segment_1_woody_image}}" ng-click="select_woody('STICK_1')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img ng-src="{{stick_segment_2_woody_image}}" ng-click="select_woody('STICK_2')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img ng-src="{{stick_segment_3_woody_image}}" ng-click="select_woody('STICK_3')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img ng-src="{{stick_segment_4_woody_image}}" ng-click="select_woody('STICK_4')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img ng-src="{{stick_segment_5_woody_image}}" ng-click="select_woody('STICK_5')" style="width:92%; height:95%" />
+               </div>
+
+    </div>
+    <div class="row" style="height:100px;">
+               <div class="col col-20" align="center">
+                   <img ng-src="{{stick_segment_1_rock_image}}" ng-click="select_rock('STICK_1')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img ng-src="{{stick_segment_2_rock_image}}" ng-click="select_rock('STICK_2')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img ng-src="{{stick_segment_3_rock_image}}" ng-click="select_rock('STICK_3')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img ng-src="{{stick_segment_4_rock_image}}" ng-click="select_rock('STICK_4')" style="width:92%; height:95%" />
+               </div>
+               <div class="col col-20" align="center">
+                   <img ng-src="{{stick_segment_5_rock_image}}" ng-click="select_rock('STICK_5')" style="width:92%; height:95%" />
+               </div>
+
+    </div>
+    <hr class="horizontalbreak">
+    <br/><br/><br/>
+  </ion-content>
+  </div>
+</ion-view>

@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.body {
+	background-color: #EBEBEB;
+	color: #009100;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+
+.lpks-id {
+	width: 95%;
+	height: auto;
+	color: black;
+	background-color: white;
+	border-collapse: collapse;
+	align: left;
+	border-radius: 10px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 25px;
+	text-align: left;
+	text-indent: 0px;
+	line-height: 20px;
+	font-size: 12px;
+	padding: 10px;
+}
+

@@ -1,0 +1,36 @@
+ <link href="css/navigator_transect.css" rel="stylesheet">
+ <ion-view view-title="" hide-back-button="true" cache-view="false">
+   <!--<ion-nav-title style="padding-left:0px">
+     <a align="left" class="button button-icon ion-ios-arrow-back" ng-click="goBack()"
+        style="padding-left:0px;padding-top:5px;width:3px">
+     </a>
+     <a align="left" class="button button-icon" style="padding-left:0px"
+        ng-click="goBack()">
+        <img src="img/ic_launcher.png" class="title-image" align="left">
+        <p style="padding-top:5px">&nbsp;{{plot_name}}-West Transect</p>
+      </a>
+   </ion-nav-title>-->
+   <ion-nav-buttons side="left">
+    <a align="right" class="button button-icon ion-ios-arrow-back" ng-click="goBack();">Back</a>
+   </ion-nav-buttons>
+   <ion-nav-buttons side="right"></ion-nav-buttons>
+
+        <ion-content class="padding body" overflow-scroll="true">
+            <br/>
+            <a class="item item-icon-right soillayer" ng-click="goToSegment('WEST','5m');">{{label_5m}}
+               <img  ng-src="{{status_west_5m}}"  style="height:5% ; margin:0" align="right" class="image-list-thumb"/>
+            </a>
+            <a class="item item-icon-right othercomponent" ng-click="goToSegment('WEST','10m');">{{label_10m}}
+               <img  ng-src="{{status_west_10m}}"  style="height:5% ; margin:0" align="right" class="image-list-thumb"/>
+            </a>
+            <a class="item item-icon-right othercomponent" ng-click="goToSegment('WEST','15m');">{{label_15m}}
+               <img  ng-src="{{status_west_15m}}"  style="height:5% ; margin:0" align="right" class="image-list-thumb"/>
+            </a>
+            <a class="item item-icon-right othercomponent" ng-click="goToSegment('WEST','20m');">{{label_20m}}
+               <img  ng-src="{{status_west_20m}}"  style="height:5% ; margin:0" align="right" class="image-list-thumb"/>
+            </a>
+            <a class="item item-icon-right othercomponent" ng-click="goToSegment('WEST','25m');">{{label_25m}}
+               <img  ng-src="{{status_west_25m}}"  style="height:5% ; margin:0" align="right" class="image-list-thumb"/>
+            </a>
+        </ion-content>
+</ion-view>

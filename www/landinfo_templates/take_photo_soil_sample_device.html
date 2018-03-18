@@ -1,0 +1,12 @@
+<ion-view view-title="Soil Sample Photo" cache-view="false"> 
+<ion-content class="padding" overflow-scroll="true">
+    <div class="padding" align="center">
+       <img ng-src="{{pictureURL}}" style="width:90%;height:50%">
+       <br/>
+       <button ng-click="takePicture();" 
+         class="button button-block button-balanced"><i class="icon ion-camera"></i>&nbsp;Take Picture</button>
+       <button ng-click="saveSoilSamplePicture();" 
+         class="button button-block button-balanced"><i class="icon ion-upload"></i>&nbsp;Save Soil Sample Photo</button>
+    </div>
+</ion-content>
+</ion-view>

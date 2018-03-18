@@ -1,0 +1,23 @@
+.tab_border{
+    border-right:1px solid grey;
+    border-down:1px solid grey;
+    border-up:px solid grey;
+}
+
+.tab_selected {
+	color:blue; 
+	font-weight: bold;
+}
+
+.my-custome-popup { 
+   .popup {width: 1200px !important; height: 350px;}
+ }
+ .tabs-striped .tabs {
+  background-color: white;
+  background-image: none;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  padding-top: 2px; 
+  top: 44px;
+}
+

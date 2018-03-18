@@ -1,0 +1,19 @@
+<link href="landinfo_css/accounts.css" rel="stylesheet">
+<link href="landinfo_css/common.css" rel="stylesheet">
+<ion-view align-title="left" hide-back-button="true">
+
+  <ion-nav-title>
+      <p style="padding-top:5px">&nbsp;{{labels.title}}</p>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+  </ion-nav-buttons>
+
+
+  <ion-content class="padding body" overflow-scroll="true">
+    <br/>
+    <a class="item item-icon-right lpks-id" ui-sref="landpks.landinfo_accounts" style="text-align:left">{{labels.accounts }}</a>
+    <a class="item item-icon-right othercomponent" ui-sref="landpks.landpks_app_setting" style="text-align:left">{{labels.application_setting}}</a>
+    <a class="item item-icon-right othercomponent" ui-sref="landpks.landinfo_about" style="text-align:left">{{labels.about}}</a>
+    <a class="item item-icon-right othercomponent" ng-click="landinfo_logout();" style="text-align:left">{{labels.logout}}</a>
+  </ion-content>
+</ion-view>

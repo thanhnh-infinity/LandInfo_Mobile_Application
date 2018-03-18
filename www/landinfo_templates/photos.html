@@ -1,0 +1,83 @@
+<link href="landinfo_css/photos.css" rel="stylesheet">
+<link href="landinfo_css/common.css" rel="stylesheet">
+<link href="landinfo_css/tab.css" rel="stylesheet">
+
+<ion-view view-title="">
+
+  <ion-nav-title><p>&nbsp;{{ "landinfo_common.photos_heading" | translate }}</p></ion-nav-title>
+  <ion-nav-buttons side="right">
+  </ion-nav-buttons>
+  <ion-content class="body" overflow-scroll="false" >
+        <div class="row">
+          <div class="col col-70 box" >
+               <a id="aUploadAll" style="width:50%;" class="button icon" ng-click="uploadAllPhotos('all');"><i id="iUploadAll" class="icon ion-ios-cloud-upload" style="font-size: 70px;"></i></a>
+          </div>
+          <div class="col col-30 box">
+               
+          </div>
+       </div>
+
+       <hr class="horizontalbreak">
+       <p class="lpks-p"><b>{{ "landpks_app.landinfo_photos.landscape_photos" | translate }}<b> <a  class="button icon" ng-click="goToCompass_LandScape();"><i class="icon ion-camera" style="font-size: 70px;"></i></a> </p>
+       
+       <div class="row">
+          <div class="col col-70 box" >
+               <img id="img_landscape_north" ng-src="{{landscape_north_photo_data_url}}" style="width:150px; height:100px;" class="lpks-img">
+               <text align="left" id="txtNorth_LandScape_Image_Filename"></text>
+          </div>
+          <div class="col col-30 box">
+               <a id="aUploadNorth" style="width:50%; visibility: hidden" class="button icon" ng-click="uploadPhotoToCloud('landscape_north');"><i id="iUploadNorth" class="icon ion-ios-cloud-upload" style="font-size: 70px;"></i></a>
+               <i id="iUploadNorth_2" class="icon ion-android-cloud-done" style="width:80%;visibility: hidden"></i>
+          </div>
+       </div>
+       <br/>
+       <div class="row">
+          <div class="col col-70 box" >
+               <img id="img_landscape_east" ng-src="{{landscape_east_photo_data_url}}" style="width:150px; height:100px" class="lpks-img"/>
+               <text align="left" id="txtEast_LandScape_Image_Filename"></text>
+          </div>
+          <div class="col col-30 box">
+               <a id="aUploadEast" style="width:50%; visibility: hidden"  class="button icon" ng-click="uploadPhotoToCloud('landscape_east');"><i id="iUploadEast" class="icon ion-ios-cloud-upload" style="font-size: 70px;"></i></a>
+               <i id="iUploadEast_2" class="icon ion-android-cloud-done" style="width:80%;visibility: hidden"></i>
+          </div>
+       </div>
+       <br/>
+       <div class="row">
+          <div class="col col-70 box" >
+               <img id="img_landscape_south" ng-src="{{landscape_south_photo_data_url}}" style="width:150px; height:100px" class="lpks-img"/>
+               <text align="left" id="txtSouth_LandScape_Image_Filename"></text>
+          </div>
+          <div class="col col-30 box">
+               <a id="aUploadSouth" style="width:50%; visibility: hidden"  class="button icon" ng-click="uploadPhotoToCloud('landscape_south');"><i id="iUploadSouth" class="icon ion-ios-cloud-upload" style="font-size: 70px;"></i></a>
+                <i id="iUploadSouth_2" class="icon ion-android-cloud-done" style="width:80%;visibility: hidden"></i>
+          </div>
+       </div>
+       <br/>
+       <div class="row">
+          <div class="col col-70 box" >
+               <img id="img_landscape_west" ng-src="{{landscape_west_photo_data_url}}" style="width:150px; height:100px" class="lpks-img"/>
+               <text align="left" id="txtWest_LandScape_Image_Filename"></text>
+          </div>
+          <div class="col col-30 box">
+               <a id="aUploadWest" style="width:50%; visibility: hidden"  class="button icon" ng-click="uploadPhotoToCloud('landscape_west');"><i id="iUploadWest" class="icon ion-ios-cloud-upload" style="font-size: 70px;"></i></a>
+               <i id="iUploadWest_2" class="icon ion-android-cloud-done" style="width:80%;visibility: hidden"></i>
+          </div>
+       </div>
+       <br/>
+      
+       <br/>
+       <hr class="horizontalbreak">
+       <p class="lpks-p"> <b>{{ "landinfo_common.soil_pit_photo" | translate }}<b> <a  class="button icon" ng-click="goto_TakePicture_SoilPitPhoto();"><i class="icon ion-camera" style="font-size: 70px;"></i></a><i id="iUploadPit_2" class="icon ion-android-cloud-done" style="width:80%;visibility: hidden"></i>&nbsp;&nbsp;&nbsp;<a style="visibility: hidden" class="button icon" ng-click="uploadPhotoToCloud('soil_pit');"><i id="iUploadPit" class="icon ion-ios-cloud-upload" style="font-size: 70px; "></i></a> <br/><br/><input type='file' id='soilPitUpload' name='soilPitUpload' ng-show='user_end_point == "BROWSER"' accept="image/*"/> </p>
+       <img id="img_soil_pit_photo" ng-src="{{soil_pit_photo_data_url}}" style="width:150px; height:100px" class="lpks-img" />
+       <br/>
+       <text align="left" id="txtSoilPit_Image_Filename"></text>
+       <br/>
+       <hr class="horizontalbreak">
+       <p class="lpks-p"> <b>{{ "landinfo_common.soil_samples_photo" | translate }}<b> <a  class="button icon" ng-click="goto_TakePicture_SoilSamplePhoto();"><i class="icon ion-camera" style="font-size: 70px;"></i></a><i id="iUploadSample_2" class="icon ion-android-cloud-done" style="width:80%;"></i>&nbsp;&nbsp;&nbsp;<a style="visibility: hidden" class="button icon" ng-click="uploadPhotoToCloud('soil_sample');"><i id="iUploadSample" class="icon ion-ios-cloud-upload" style="font-size: 70px;"></i></a><br/><br/><input type='file' id='soilSampleUpload' name='soilSampleUpload' ng-show='user_end_point == "BROWSER"' accept="image/*"/></p>
+       <img id="img_soil_sample_photo" ng-src="{{soil_sample_photo_data_url}}" style="width:150px; height:100px; border:none" class="lpks-img" />
+       <br>
+       <text align="left" id="txtSoilSample_Image_Filename"></text>
+       <br/><br/><br/><br/>
+
+        </ion-content>
+      </ion-view>

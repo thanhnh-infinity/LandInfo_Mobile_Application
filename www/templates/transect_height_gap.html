@@ -1,0 +1,128 @@
+ <link href="css/transect_cover.css" rel="stylesheet">
+ <link href="css/tab.css" rel="stylesheet">
+
+ <ion-view view-title="" hide-back-button="true" cache-view="false">
+ <!--<ion-nav-title>
+  <a align="left"
+     class="button button-icon ion-ios-arrow-back"
+     ng-click="completeAddData_Transect();"
+     style="padding-left:0px;padding-top:5px;width:3px"></a>
+  <a align="left"
+     class="button button-icon"
+     ng-click="completeAddData_Transect();"
+     style="padding-left:0px">
+     <img src="img/ic_launcher.png" class="title-image" align="left">
+     <p style="padding-top:5px"> &nbsp;{{plot_name}}-{{transect_direction}},{{segment}}</p>
+  </a>
+ </ion-nav-title>-->
+
+    <ion-nav-buttons side="left">
+    <a align="right" class="button button-icon ion-ios-arrow-back" ng-click="completeAddData_Transect();">Back</a>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right" >
+	   <a class="tab-item" ng-click="gotoTransect_Cover();" style="width:100px;padding-top:5px;">
+	        <img ng-src="{{cover_status_img_src}}" style="width:20px; height:20px;"/>
+	        <b>COVER</b>
+	   </a>
+	    <a class="tab-item active" href="#" style="width:100px;padding-top:5px;border-left: solid white;">
+	        <img ng-src="{{height_gap_status_img_src}}" style="width:20px; height:20px"/>
+	        <b>HEIGHT/GAP</b>
+	    </a>
+  </ion-nav-buttons>
+
+  <!--
+  <div class="tabs tabs-striped tabs-top tabs-background-stable tabs-color-positive">
+	      <a class="tab-item " ng-click="gotoTransect_Cover();">
+	        <img ng-src="{{cover_status_img_src}}" class="title-image1" style="width:30%; height:60%"/>
+	        <b>COVER</b>
+	      </a>
+	      <a class="tab-item active" href="#/landcover/transect_height_gap">
+	        <img ng-src="{{height_gap_status_img_src}}" class="title-image1" style="width:30%; height:60%"/>
+	        <b>HEIGHT/GAP</b>
+	      </a>
+  </div>
+  -->
+
+  <div>
+    <!--
+    <ion-content class="padding body" overflow-scroll="true" on-swipe-right="gotoTransect_Cover();">
+    -->
+    <ion-content class="padding body"  on-swipe-right="gotoTransect_Cover();">
+    <br/>
+
+     <div class="row">
+               <div class="col col-33">
+                  <div class="row" style="height:147px;">
+                      <div class="col col-50">
+                        <img  ng-src="{{height_smaller_10_cm_image}}"  ng-click="select_height('<10cm')" style="width:98%; height:85%"/>
+                      </div>
+                      <div class="col col-50">
+                        <img  ng-src="{{height_10_50_cm_image}}" ng-click="select_height('10-50cm')" style="width:98%; height:85%" />
+                      </div>
+                  </div>
+                  <div class="row" style="height:147px;">
+                      <div class="col col-50">
+                        <img  ng-src="{{height_50_cm_1_m_image}}" ng-click="select_height('50cm-1m')" style="width:98%; height:85%" />
+                      </div>
+                      <div class="col col-50">
+                        <img  ng-src="{{height_1_2_m_image}}" ng-click="select_height('1-2m')" style="width:98%; height:85%" />
+                      </div>
+                  </div>
+                  <div class="row" style="height:147px;">
+                      <div class="col col-50">
+                        <img  ng-src="{{height_2_3_m_image}}" ng-click="select_height('2-3m')" style="width:98%; height:85%" />
+                      </div>
+                      <div class="col col-50">
+                        <img  ng-src="{{height_bigger_3_m_image}}" ng-click="select_height('>3m')" style="width:98%; height:85%" />
+                      </div>
+                  </div>
+               </div>
+               <div class="col col-33 divider_left">
+                  <div class="row" style="height:110px;">
+                      <img  ng-src="{{basal_gap_image}}" ng-click="select_basal_canopy('basal')" style="width:98%; height:90%" />
+                  </div>
+                  <div class="row" style="height:110px;">
+                      <img  ng-src="{{no_basal_gap_image}}" ng-click="select_basal_canopy('no_basal')" style="width:98%; height:90%" />
+                  </div>
+                  <hr class="horizontalbreak">
+                  <div class="row" style="height:110px;">
+                      <img  ng-src="{{canopy_gap_image}}" ng-click="select_basal_canopy('canopy')" style="width:98%; height:90%" />
+                  </div>
+                  <div class="row" style="height:110px;">
+                      <img  ng-src="{{no_canopy_gap_image}}" ng-click="select_basal_canopy('no_canopy')" style="width:98%; height:90%" />
+                  </div>
+               </div>
+               <div class="col col-33 divider_left">
+                   <h4>Species counts</h4><br/>
+                   <label class="item item-input">
+                      <span class="input-label">Species 1</span>
+
+				           </label>
+                   <label class="item item-input">
+                      <input style="border-style: solid;border-width: 0px 0px 1px 0px; border-color: blue;" type="text" id="species_1" ng-model="species_1" readonly="readonly" style="text-align: left;" ng-keydown="checkAndNext($event,'species_1');"/>
+                   </label>
+                   <label class="item item-input">
+	    			        	<span class="input-label">Count</span>
+	                    <input style="border-style: solid;border-width: 0px 0px 1px 0px; border-color: blue;" type="number" id="species_1_count" ng-model="species_1_count" readonly="readonly" ng-change="validateSpecies(1);" ng-click="initNumberSpecies(1);" ng-blur="validateSpecies($event,1);" ng-keydown="validateSpecies($event,1);"/>
+	                 </label>
+	               <br/>
+	                  <label class="item item-input">
+                      <span class="input-label">Species 2</span>
+
+				            </label>
+                    <label class="item item-input">
+                      <input style="border-style: solid;border-width: 0px 0px 1px 0px; border-color: blue;" type="text" id="species_2" ng-model="species_2" readonly="readonly" style="text-align: left;" ng-keydown="checkAndNext($event,'species_2');"/>
+                    </label>
+                   <label class="item item-input">
+	    				<span class="input-label">Count</span>
+	                    <input style="border-style: solid;border-width: 0px 0px 1px 0px; border-color: blue;" type="number" id="species_2_count" ng-model="species_2_count" readonly="readonly" ng-change="validateSpecies(2);" ng-click="initNumberSpecies(2);" ng-blur="validateSpecies($event,2);" ng-keydown="validateSpecies($event,2);"/>
+	               </label>
+               </div>
+    </div>
+
+
+    <br/><br/><br/>
+  </ion-content>
+  </div>
+</ion-view>

@@ -1,21 +1,21 @@
-<ion-tabs class="tabs-item-hide">
+<ion-tabs class="tabs-icon-top tabs-balanced {{$root.hideTabs}}" ng-class="{'tabs-item-hide': hideTabs}">
 
-        <ion-tab title="LandInfo" icon="ion-home" href="#/landinfo/home">
-          <ion-nav-view name="home-tab"></ion-nav-view>
-        </ion-tab>
+  <ion-tab title="{{tabs.label.home}}" icon="ion-ios-home-outline" ui-sref="landpks.landinfo_plots">
+    <ion-nav-view name="home-tab"></ion-nav-view>
+  </ion-tab>
+  <!-- <ion-tab title="EPIC" icon="ion-ios-pulse" ui-sref="landpks.landinfo_epic_prediction"> -->
+  <ion-tab title="{{tabs.label.map}}" icon="ion-ios-world-outline" ui-sref="landpks.landinfo_plots_map">
+    <ion-nav-view name="map-tab"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="{{tabs.label.climate}}" icon="ion-ios-rainy-outline" ui-sref="landpks.landinfo_quick_climate">
+    <ion-nav-view name="climate-tab"></ion-nav-view>
+  </ion-tab>
+  <!--<ion-tab title="Add Plot" icon="ion-ios-plus-outline" ng-click="openNewPlot()">
+    <ion-nav-view name="home-tab"></ion-nav-view>
+  </ion-tab>
+  -->
+  <ion-tab title="{{tabs.label.settings}}" icon="ion-ios-gear-outline" ui-sref="landpks.landinfo_settings">
+    <ion-nav-view name="settings-tab"></ion-nav-view>
+  </ion-tab>
 
-        <ion-tab title="About" icon="ion-ios-information" href="#/landinfo/about">
-          <ion-nav-view name="about-tab"></ion-nav-view>
-        </ion-tab>
-
-        <ion-tab title="Settings" icon="ion-gear-b" ui-sref="landinfo.settings">
-          <ion-nav-view name="settings-tab"></ion-nav-view>
-        </ion-tab>
-      
-        <ion-tab title="Copy To SDCard" icon="ion-archive" ui-sref="landinfo.copytosd">
-          <ion-nav-view name="copytosd-tab"></ion-nav-view>
-        </ion-tab>
-        
-      </ion-tabs>
-
-    
+</ion-tabs>

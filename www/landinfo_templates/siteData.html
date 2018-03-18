@@ -1,0 +1,123 @@
+<link href="landinfo_css/results-section.css" rel="stylesheet">
+<link href="landinfo_css/common.css" rel="stylesheet">
+
+<ion-view view-title="">
+
+  <ion-nav-title><p>&nbsp;{{plot_name}}</p></ion-nav-title>
+  <ion-nav-buttons side="right">
+    <a align="right" class="button button-icon ion-trash-b" ng-click="confirmDelete();"></a>
+  </ion-nav-buttons>
+  <!--
+  <ion-nav-bar class="bar-balanced">
+    <ion-nav-back-button class="button-clear">
+        <i class="ion-chevron-left"></i> Back
+      </ion-nav-back-button>
+  </ion-nav-bar>
+  -->
+
+  <ion-header-bar class="bar-subheader">
+        <div class="button-bar">
+            <a class="lpks-nav-button button button-outline button-balanced" ui-sref="landpks.landinfo_site-home" translate="landinfo_app.site_home.report"></a>
+            <a class="lpks-nav-button button button-balanced" translate="landinfo_app.site_home.data"></a>
+        </div>
+  </ion-header-bar>
+
+  <ion-content class="padding body" overflow-scroll="true">
+
+    <div ng-if="syncRequired" style="background-color:white">
+      <div  id="synchButton" style="display:flex;align-items:center;justify-content: center;">    
+        <a ng-click="synchronize()"><i class="icon ion-android-sync energized" style="font-size: 64px"></i></a>
+      </div>
+      <div  id="synchButton" style="display:flex;align-items:center;justify-content: center;">    
+      Synchronize Now?  
+      </div>
+      <hr class="horizontalbreak">
+    </div>
+
+    <!--<ion-toggle ng-model="testPlot" toggle-class="toggle-balanced" ng-change="changeTestOrNonTestValue();"><b>Practice Plot?</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{label_test_or_nontest_plot}}</ion-toggle>-->
+
+    <div class="list">
+
+      <div class="item item-divider" style="border-Bottom: 6px solid #855723;">
+        LandInfo
+      </div>
+
+      <a class="item item-icon-left item-icon-right" href="#/landpks/landinfo_landcover">
+        <img class="lpks-characterization-icons icon" src='landinfo_media/icon/Land Use.png'></img>
+        <h2 style="margin-left:15px">Land Use</h2>
+        <i class="icon ion-ios-arrow-right dark"></i>
+      </a>
+
+      <a class="item item-icon-left item-icon-right" href="#/landpks/landinfo_slope">
+        <img class="lpks-characterization-icons icon" src='landinfo_media/icon/Land Slope.png'></img>
+        <h2 style="margin-left:15px">Land Slope</h2>
+        <i class="icon ion-ios-arrow-right dark"></i>
+      </a>
+
+      <a class="item item-icon-left item-icon-right" href="#/landpks/landinfo_site-texture">
+        <img class="lpks-characterization-icons icon" src='landinfo_media/icon/Soil-Texture-2.png'></img>
+        <h2 style="margin-left:15px">Soil Texture</h2>
+        <i class="icon ion-ios-arrow-right dark"></i>
+      </a>
+
+      <a class="item item-icon-left item-icon-right" href="#/landpks/landinfo_soilcondition">
+        <img class="lpks-characterization-icons icon" src='landinfo_media/icon/Soil-Condition-or-Limitations-white-bckgd.png'></img>
+        <!--<h2>Soil Condition</h2>-->
+        <h2 style="margin-left:15px">Soil Limitations</h2>
+        <i class="icon ion-ios-arrow-right dark"></i>
+      </a>
+
+      <!--<a class="item item-icon-left item-icon-right" href="#">
+        <i class="icon ion-android-checkbox-blank positive" style="font-size:48px"></i>
+        <h2>Soil Color</h2>
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>-->
+
+      <div class="item item-divider" style="border-Bottom: 6px solid #008000;">
+        LandCover
+      </div>
+      <!--<a class="item" href="#">
+        Dominant Woody Species
+      </a>
+
+      <a class="item" href="#">
+        Dominant Non-Woody Species
+      </a>-->
+      <a class="item item-icon-left item-icon-right" ng-click="selectCoverPlot()">
+        <img class="lpks-characterization-icons icon" src='landinfo_media/icon/Add-New-Transect.png'></img>
+        <h2 style="margin-left:15px">Add New Transect Detail</h2>
+        <i class="icon ion-ios-arrow-right dark"></i>
+      </a>
+      <!--show existing Transects **Removed for now
+      <a class="item item-icon-left item-icon-right" ng-repeat="date in landCoverReviewArray track by $index"
+                  value="{{date}}" ng-click="selectCoverPlot(date)">
+        <img class="lpks-characterization-icons icon" src='landinfo_media/icon/Review-Transect.png'></img>
+        <h2 style="margin-left:15px">Transect - {{date}}</h2>
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>
+    -->
+
+      <div class="item item-divider" style="border-Bottom: 6px solid #855723;">
+        Photos and Notes
+      </div>
+      <a class="item item-icon-left item-icon-right" href="#/landpks/landinfo_photos">
+        <img class="lpks-characterization-icons icon" src='landinfo_media/icon/Photos.png'></img>
+        <h2 style="margin-left:15px">Photos</h2>
+        <i class="icon ion-ios-arrow-right dark"></i>
+      </a>
+      <a class="item item-icon-left item-icon-right" ng-click="showNotesPopup()">
+        <i class="lpks-characterization-icons icon ion-document-text dark"></i>
+        <!--<img class="lpks-characterization-icons icon" src='landinfo_media/icon/Photos.png'></img>-->
+        <h2 style="margin-left:15px">Notes</h2>
+        <i class="icon ion-ios-arrow-right dark"></i>
+      </a>
+      <!--
+      <div class="item item-divider">
+        CROP MONITOR
+      </div>
+      -->
+    </div>
+  
+  
+  </ion-content>
+</ion-view>

@@ -1,0 +1,17 @@
+<link href="landinfo_css/accounts.css" rel="stylesheet">
+<link href="landinfo_css/common.css" rel="stylesheet">
+
+<ion-view align-title="left" cache-view="false">
+  <ion-nav-title >
+      <p>&nbsp;{{labels.title}}</p>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+  </ion-nav-buttons>
+
+  <ion-content class="padding body" overflow-scroll="true">
+	   <a class="item item-icon-right lpks-id" ui-sref="landpks.landinfo_app_information">{{labels.app_info}}<i class="icon ion-ios-arrow-forward icon-accessory"></i> </a>
+     <a class="item item-icon-right othercomponent" ui-sref="landpks.landinfo_data_policy" style="text-align:left">{{labels.data_policy}}<i class="icon ion-ios-arrow-forward icon-accessory"></i> </a>
+     <a class="item item-icon-right othercomponent" ui-sref="landpks.landinfo_license" style="text-align:left">{{labels.license}}<i class="icon ion-ios-arrow-forward icon-accessory"></i> </a>
+
+  </ion-content>
+</ion-view>

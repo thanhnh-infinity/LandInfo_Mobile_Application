@@ -1,0 +1,66 @@
+<link href="landinfo_css/landcover.css" rel="stylesheet">
+<link href="landinfo_css/common.css" rel="stylesheet">
+<ion-view view-title="">
+
+  <ion-nav-title><p>&nbsp;Land Cover</p></ion-nav-title>
+  <ion-nav-buttons side="right"></ion-nav-buttons>
+  
+  <ion-header-bar class="bar-subheader">
+        <div class="button-bar">
+            <a class="lpks-nav-button button button-balanced" ui-sref="landpks.landinfo_site-home">Land Cover</a>
+            <a class="lpks-nav-button button button-outline button-balanced" ui-sref="landpks.landinfo_landuse">Grazing</a>
+        </div>
+  </ion-header-bar>
+
+  <ion-content class="padding body" overflow-scroll="true">
+  
+    <div class="row">
+      <div class="col col-50 box" >
+           <img class="content " id="flooded" ng-src="{{landcover_current_flooded}}" ng-click="selectFlood('flooded')" style="width:95%; height:95%; top:0px"/>
+      </div>
+      <div class="col col-50 box">
+           <img class="content" id="not-flooded" ng-src="{{landcover_current_no_flooded}}" ng-click="selectFlood('not_flooded')" style="width:95%; height:95%; top:0px"/>
+      </div>
+    </div>
+
+    <hr class="horizontalbreak">
+
+    <div class="row">
+          <div class="col col-33 box" align="center">
+               <img class="content" ng-src="{{landcover_current_tree}}" id="TREE" ng-click="selectCover('TREE')" style="width:95%; height:95%; top:0px " />
+          </div>
+          <div class="col col-33 box" align="center">
+               <img class="content" ng-src="{{landcover_current_shrub}}" id="SHRUBLAND"  ng-click="selectCover('SHRUBLAND')" style="width:95%; height:95%; top:0px "/>
+          </div>
+          <div class="col col-33 box" align="center">
+               <img class="content" ng-src="{{landcover_current_grass_land}}" id="GRASSLAND"  ng-click="selectCover('GRASSLAND')" style="width:95%; height:95%;  top:0px"/>
+          </div>
+    </div>
+    <div class="row">
+          <div class="col col-33 box" align="center">
+               <img class="content" ng-src="{{landcover_current_savana}}" id="SAVANNA"  ng-click="selectCover('SAVANNA')" style="width:95%; height:95%;  top:0px"/>
+          </div>
+          <div class="col col-33 box" align="center">
+               <img class="content" ng-src="{{landcover_current_garden_mixed}}" id="GARDEN/MIXED"  ng-click="selectCover('GARDEN/MIXED')"style="width:95%; height:95%;  top:0px"/>
+          </div>
+          <div class="col col-33 box" align="center">
+               <img class="content" ng-src="{{landcover_current_cropland}}" id="CROPLAND"  ng-click="selectCover('CROPLAND')" style="width:95%; height:95%;  top:0px"/>
+          </div>
+    </div>
+    <div class="row">
+          <div class="col col-33 box" align="center">
+               <img class="content" ng-src="{{landcover_current_developed}}" id="DEVELOPED"  ng-click="selectCover('DEVELOPED')" style="width:95%; height:95%;  top:0px"/>
+          </div>
+          <div class="col col-33 box" align="center">
+               <img class="content" ng-src="{{landcover_current_barren}}" id="BARREN"  ng-click="selectCover('BARREN')" style="width:95%; height:95%;  top:0px"/>
+          </div>
+          <div class="col col-33 box" align="center">
+               <img class="content" ng-src="{{landcover_current_water}}" id="WATER"  ng-click="selectCover('WATER')" style="width:95%; height:95%;  top:0px"/>
+          </div>
+    </div>
+        
+
+    
+  
+  </ion-content>
+</ion-view>

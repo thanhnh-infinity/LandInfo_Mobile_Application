@@ -1,0 +1,85 @@
+<link href="css/main_transect.css" rel="stylesheet">
+<ion-view view-title="" cache-view="false" hide-back-button="true">
+
+  <ion-nav-buttons side="left">
+    <a align="right" class="button button-icon ion-ios-arrow-back" ng-click="goBack()">Back</a>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right"></ion-nav-buttons>
+
+  <ion-content class="padding body" overflow-scroll="true">
+    <div class="row" style="height:70px;">
+      <div class="col col-33">
+      </div>
+      <div class="col col-33">
+            <!--<button id="btnSummaryLandCover" class="button button-balanced" style="display:none;"
+            ng-click="summaryLandCoverData();">Summary</button>-->
+      </div>
+      <div class="col col-33" align="right">
+        <button id="btnSubmitLandCover" class="button button-balanced" style="display:none;"
+          ng-click="submitLandCoverData();">Submit</button>
+      </div>
+    </div>
+
+    <div class="row" style="height:100px;">
+      <div class="col col-33">
+
+      </div>
+      <div class="col col-33" align="center">
+        <img  ng-src="{{north_transect_status_img}}" ng-click="goto_Navigator_Transect('NORTH')" id="imgNorth" style="width:80%; height:90%"/>
+      </div>
+      <div class="col col-33">
+
+      </div>
+    </div>
+    <div class="row" style="height:100px;">
+       <div class="col col-33" align="right">
+            <img  ng-src="{{west_transect_status_img}}" ng-click="goto_Navigator_Transect('WEST')" id="imgWest" style="width:80%; height:90%"/>
+       </div>
+       <div class="col col-33" align="center">
+            <img  ng-src="img/ic_landinfo_logo.png" id="imgLandInfo" style="width:80%; height:90%"/>
+       </div>
+       <div class="col col-33" align="left">
+            <img  ng-src="{{east_transect_status_img}}" ng-click="goto_Navigator_Transect('EAST')" id="imgEast" style="width:80%; height:90%"/>
+       </div>
+    </div>
+    <div class="row" style="height:100px;">
+       <div class="col col-33">
+
+       </div>
+       <div class="col col-33" align="center">
+            <img  ng-src="{{south_transect_status_img}}" ng-click="goto_Navigator_Transect('SOUTH')" id="imgSouth" style="width:80%; height:90%"/>
+       </div>
+       <div class="col col-33">
+
+       </div>
+    </div>
+
+  	<label class="item item-input">
+  	    <span class="input-label">Dominant Woody Species (by cover)</span>
+  	</label>
+  	<label class="item item-input">
+        <span>1&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  	    <input type="text" id="dominant_woody" ng-model="dominant_woody_species" ng-keydown="checkAndNext($event,'woody');"/>
+  	</label>
+    <label class="item item-input">
+        <span>2&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  	    <input type="text" id="dominant_woody_2" ng-model="dominant_woody_species_2" ng-keydown="checkAndNext($event,'woody_2');"/>
+  	</label>
+  	<br/>
+
+  	<label class="item item-input">
+  	    <span class="input-label">Dominant Non-Woody Species (by cover)</span>
+  	</label>
+  	<label class="item item-input">
+        <span>1&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  	    <input type="text" id="dominant_nonwoody" ng-model="dominant_nonwoody_species" ng-keydown="checkAndNext($event,'nonwoody');"/>
+  	</label>
+    <label class="item item-input">
+        <span>2&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  	    <input type="text" id="dominant_nonwoody_2" ng-model="dominant_nonwoody_species_2" ng-keydown="checkAndNext($event,'nonwoody_2');"/>
+  	</label>
+  	<br/>
+
+  </ion-content>
+</ion-view>

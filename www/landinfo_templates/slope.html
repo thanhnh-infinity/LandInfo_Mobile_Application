@@ -1,0 +1,59 @@
+<link href="landinfo_css/landcover.css" rel="stylesheet">
+<link href="landinfo_css/common.css" rel="stylesheet">
+<ion-view view-title="">
+
+  <ion-nav-title><p>&nbsp;Slope</p></ion-nav-title>
+  <ion-nav-buttons side="right"></ion-nav-buttons>
+  
+  <ion-header-bar class="bar-subheader">
+    <div class="button-bar">
+      <a class="lpks-nav-button button button-balanced">Slope</a>
+      <a class="lpks-nav-button button button-outline button-balanced" ui-sref="landpks.landinfo_slopeshape">Slope Shape</a>
+    </div>
+  </ion-header-bar>
+  <ion-content class="padding body" overflow-scroll="true">
+    <p align="center">
+          <!-- <button align="center" class="button" ng-click="slope_Meter();" id="btnUseSlopeMeter" >Use Slope Meter</button> -->
+      <button class="button button-balanced" ng-click="slope_Meter();" id="btnUseSlopeMeter"><b>Use Slope Meter</b></button>
+    </p>
+
+    <h2 align="center" ng-if="measuredSlope != 'undefined'"><text id="txtSlopeMeter">{{measuredSlope}}</text></h2>
+    <p align="center" class="lpks-p">
+      <b><text align="center">OR</text></b>
+    </p>
+    <h2 align="center"><text id="txtSlopeMeter">{{categorizedSlope}}</text></h2>
+    
+      <div class="row">
+        <div class="col col-50 box" align="center">
+          <img class="content" id="flat" ng-src="{{slope_flat}}" ng-click="selectSlope('flat')" style="width:95%; height:95%; top:0px; margin:auto;"/>
+        </div>
+        <div class="col col-50 box" align="center">
+          <img class="content" id="gentle" ng-src="{{slope_gentle}}" ng-click="selectSlope('gentle')"  style="width:95%; height:95%; top:0px; margin:auto"/>
+        </div>
+      </div>
+      <div class="row ">
+         <div class="col col-50 box" align="center">
+              <img class="content" id="moderate" ng-src="{{slope_moderate}}" ng-click="selectSlope('moderate')" style="width:95%; height:95%; top:0px; margin:auto"/>
+         </div>
+         <div class="col col-50 box" align="center">
+              <img class="content" id="rolling" ng-src="{{slope_rolling}}" ng-click="selectSlope('rolling')" style="width:95%; height:95%; top:0px; margin:auto"/>
+         </div>
+       </div>
+
+        <div class="row ">
+             <div class="col col-50 box" align="center">
+                  <img class="content" id="hilly" ng-src="{{slope_hilly}}" ng-click="selectSlope('hilly')" style="width:95%; height:95%; top:0px; margin:auto"/>
+             </div>
+             <div class="col col-50 box">
+                  <img class="content" id="steep" ng-src="{{slope_steep}}" ng-click="selectSlope('steep')" style="width:95%; height:95%; top:0px; margin:auto"/>
+             </div>
+       </div>
+
+       <div class="row ">
+             <div class="col col-50 box" align="center">
+                  <img class="content" id="verysteep" ng-src="{{slope_verysteep}}" ng-click="selectSlope('verysteep')" style="width:95%; height:95%; top:0px; margin:auto"/>
+             </div>
+       </div>
+        <br/><br/><br/>
+    </ion-content>
+</ion-view>

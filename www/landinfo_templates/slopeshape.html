@@ -1,0 +1,47 @@
+<link href="landinfo_css/slopeshape.css" rel="stylesheet">
+<link href="landinfo_css/common.css" rel="stylesheet">
+<link href="landinfo_css/landcover.css" rel="stylesheet">
+
+<ion-view view-title="">
+
+  <ion-nav-title><p>Slope Shape</p></ion-nav-title>
+  <ion-nav-buttons side="right"></ion-nav-buttons>
+
+  <ion-header-bar class="bar-subheader">
+    <div class="button-bar">
+      <a class="lpks-nav-button button button-outline button-balanced" ui-sref="landpks.landinfo_slope">Slope</a>
+      <a class="lpks-nav-button button button-balanced">Slope Shape</a>
+    </div>
+  </ion-header-bar>
+
+  <ion-content class="padding body" overflow-scroll="true">
+  
+    <div class="row" >
+      <div class="col col-50 box" align="center" style="border-right:2px solid #009100">
+        <img class="content" id="DOWN_CONCAVE" ng-src="{{slopeshape_downslopeconcave}}" ng-click="selectDownSlope('CONCAVE')" style="width:95%; height:95%; top:0px; margin:auto" />
+      </div>
+      <div class="col col-50 box" align="center" style="border-left:2px solid #009100">
+        <img class="content" id="ACROSS_CONCAVE" ng-src="{{slopeshape_crossslopeconcave}}" ng-click="selectAcrossSlope('CONCAVE')" style="width:95%; height:95%; top:0px; margin:auto"/>
+      </div>
+    </div> 
+
+    <div class="row" >
+      <div class="col col-50 box" align="center" style="border-right:2px solid #009100">
+        <img class="content" id="DOWN_CONVEX" ng-src="{{slopeshape_downslopeconvex}}"  ng-click="selectDownSlope('CONVEX')" style="width:95%; height:95%; top:0px; margin:auto" />
+      </div>
+      <div class="col col-50 box"  align="center" style="border-left:2px solid #009100">
+        <img class="content" id="ACROSS_CONVEX" ng-src="{{slopeshape_crossslopeconvex}}" ng-click="selectAcrossSlope('CONVEX')" style="width:95%; height:95%; top:0px; margin:auto"/>
+      </div>
+    </div>
+
+    <div class="row" >
+      <div class="col col-50 box" align="center" style="border-right:2px solid #009100">
+        <img class="content" id="DOWN_LINEAR" ng-src="{{slopeshape_downslopeflat}}"  ng-click="selectDownSlope('LINEAR')" style="width:95%; height:95%; top:0px; margin:auto" />
+      </div>
+      <div class="col col-50 box" align="center" style="border-left:2px solid #009100">
+        <img class="content" id="ACROSS_LINEAR" ng-src="{{slopeshape_crossslopeflat}}" ng-click="selectAcrossSlope('LINEAR')" style="width:95%; height:95%; top:0px; margin:auto"/>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

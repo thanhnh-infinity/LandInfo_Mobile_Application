@@ -1,0 +1,72 @@
+<link href="landinfo_css/common.css" rel="stylesheet">
+<ion-view view-title="">
+
+<ion-nav-title><p></p></ion-nav-title>
+  <ion-nav-title><p>New Site</p></ion-nav-title>
+  <ion-nav-buttons side="right">
+    <a align="right" class="button button-icon" ng-click="backArrowClick();" >SAVE</a>
+  </ion-nav-buttons>
+
+
+
+<ion-content class="body" overflow-scroll="false" >
+
+
+  <div class="list">
+
+    <div class="item item-divider">
+      SITE
+    </div>
+    <label class="item item-input">
+      <span class="input-label">Site Name</span>
+      <input type="text" id="name" tabindex='1' autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </label>
+      
+    <div class="item item-divider">
+      POSITION <i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landpks_app.app_plot_id.position_des')" ></i>
+    </div>
+    <label class="item item-input">
+      <span class="input-label">Latitude</span>
+      <input type="text" id="latitude" tabindex="2" type="number" ng-model="latitude" ng-change="validateLatitude();" ng-blur="validateLatitude();" ng-keydown="validateNumber($event,'lat');">
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Longitude</span>
+      <input type="text" id="longitude" tabindex="3" type="number" ng-model="longitude" ng-change="validateLongitude();" ng-blur="validateLongitude();" ng-keydown="validateNumber($event,'long');">
+    </label>
+    <div class="item item-divider">
+      Location accuracy : {{loc_accuracy}} <span ng-if="loc_accuracy != 'searching...'">m</span>
+    </div>
+    <p align="left">
+      <a class="button icon ion-navigate button-small button-balanced" ng-click="getLocation();"
+        id="btnObtainGPS"> Obtain GPS fix</a>
+    </p>
+  </div>
+
+
+  <div class="item item-input" style="display:none">
+
+    <span class="input-label"><b>Organization</b></span>
+    <div ng-show="detectPlatform !== 'IOS' && detectPlatform !== 'SAFARI'" style="width:80%">
+        <input type="text" id="organization" list="organizations"
+               ng-keydown="validateText($event,'org');" tabindex="2"
+               />
+        <datalist id="organizations">
+        </datalist>
+    </div>
+
+    <div ng-show="detectPlatform === 'IOS' || detectPlatform === 'SAFARI'" style="width:100%">
+        <select id="organization2" style="width:65%">
+        </select>
+        <a class="button icon ion-plus button-small button-balanced" ng-click="addNewOrganization();"
+          id="btnAddNewOrg"> Add</a>
+    </div>
+  </div>
+  <!--
+  <button id="btnN" class="button" ng-click="backArrowClick();">
+      <b>Next</b>
+  </button>
+-->
+</ion-content>
+
+
+</ion-view>

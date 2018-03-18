@@ -1,0 +1,397 @@
+<link href="landinfo_css/results-section.css" rel="stylesheet">
+<link href="landinfo_css/common.css" rel="stylesheet">
+<link href="css/site_summary.css" rel="stylesheet">
+
+<ion-view view-title="" >
+
+  <ion-nav-title><p>&nbsp;{{plot_name}}</p></ion-nav-title>
+  <!--override default back button so we always go back to list.  The elimated the newplot screen from stack-->
+  <ion-nav-buttons side="left">
+    <a ng-if="backView =='landpks.landinfo_plots'" align="right" class="button button-icon ion-ios-arrow-back" ui-sref={{backView}}>Back</a>
+  </ion-nav-buttons> 
+  <ion-nav-buttons side="right">
+    <button class="button button-icon ion-trash-b" ng-click="confirmDelete();"></button>
+  </ion-nav-buttons> 
+
+
+  <ion-header-bar class="bar-subheader">
+        <div class="button-bar">
+            <a class="lpks-nav-button button button-balanced" translate="landinfo_app.site_home.report"></a>
+            <a class="lpks-nav-button button button-outline button-balanced" ui-sref="landpks.landinfo_site-data" translate="landinfo_app.site_home.data"></a>
+        </div>
+  </ion-header-bar>
+
+  <ion-content class="padding body" overflow-scroll="true" >  
+  
+    <div ng-if="syncRequired" style="background-color:white">
+      <div  id="synchButton" style="display:flex;align-items:center;justify-content: center;">    
+        <a ng-click="synchronize()"><i class="icon ion-android-sync energized" style="font-size: 64px"></i></a>
+      </div>
+      <div  id="synchButton" style="display:flex;align-items:center;justify-content: center;">    
+      Synchronize Now?  
+      </div>
+
+      <hr class="horizontalbreak">
+    </div>
+    
+    <div ng-if="showTextureMessage">
+      <i class="ion-ios-lightbulb-outline assertive" style="font-size: 48px"></i>
+      <p>Looks like you haven't entered any data.  Tap Site Data above to get started.</p>
+    </div>
+  
+    <div class="list card">
+
+      <div class="item" style="border-top: 6px solid #f8f8f8;">
+        <!--<img src="mcfly.jpg">-->
+        <h2>{{plot_name}}</h2>
+      </div>
+      <div class="item item-body">
+        <!--<img class="full-image" src="delorean.jpg">-->
+        <p>Latitude: {{plot.latitude.toFixed(5)}}</p>
+        <p>Longitude: {{plot.longitude.toFixed(5)}}</p>
+        <p ng-show="GLOBAL_METRIC_CONFIG === 'US_METRICS'">
+        Elevation (m) : {{elevation}} </p>
+        <p ng-show="GLOBAL_METRIC_CONFIG === 'EN_METRICS'">
+        Elevation (ft) : {{elevation}} </p>
+        <p>Upload date: {{plot.insert_normal_time}}</p>
+
+      </div>
+     
+
+    </div>
+
+    <div class="list card">
+      <div class="item item-icon-right" ng-click="showHideClimate('climateDetails');" style="border-top: 6px solid #387ef5;">
+        <!--<img src="mcfly.jpg">-->
+        <h2 translate="landinfo_app.site_home.climate"></h2>
+        <i class="icon ion-ios-arrow-down" id="climateDetailsDown"></i><i class="icon ion-ios-arrow-up" id="climateDetailsUp" style="visibility:hidden"></i>
+      </div>
+      <div class="item item-body" id="climateDetails" style="display:none">
+        <!--<img class="full-image" src="delorean.jpg">-->
+        <p class="lpks-p"> <B>{{label_precipication_graph}}</B> <i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.climate_source')"></i> </p>
+        <div class="lpks-graph">
+          <canvas id="bar"
+            class="chart chart-bar"
+            chart-options="precip_bar_options"
+            chart-data="data"
+            chart-labels="labels"
+            chart-caption="captions"
+            chart-colours="precip_bar_colors">
+          </canvas>
+        </div>
+
+        <p align="center" class="lpks-p"> Month </p>
+      
+        <p class="lpks-p"><B>Temperature ({{label_degree}}) </B> <i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.climate_source')" ></i> </p>
+        <div class="lpks-graph">
+          <canvas id="line"
+            class="chart chart-line"
+            chart-data="linedata" chart-labels="names" chart-legend="true" chart-series="number" chart-click="onClick" chart-options="temp_line_options"
+            chart-colours="temp_line_colours">
+          </canvas>
+        </div>
+
+         <div class="item item-body">
+          <!--<img class="full-image" src="delorean.jpg">-->
+          <p ng-show="GLOBAL_METRIC_CONFIG === 'US_METRICS'">
+          Average annual precipitation (mm) : {{plot.climate.precipitation.annual.toFixed(0)}} <i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.precip_source')" ></i></p>
+          <p ng-show="GLOBAL_METRIC_CONFIG === 'EN_METRICS'">
+          Average annual precipitation (in) : {{annualPrecip_in}} <i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.precip_source')" ></i></p>
+          <p>
+          Growing period (days/year): {{plot.geospatial_data.gdal_fao_lgp}} <i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.growing_period_source')" ></i></p>
+          <p>
+          Aridity index : {{plot.geospatial_data.gdal_aridity_index.toFixed(4)}} <i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.aridity_source')" ></i></p>
+        </div>
+        <!--<p>
+          <a href="#" class="subdued">Some link or icon</a>
+          <a href="#" class="subdued">Some other link or icon</a>
+        </p>-->
+      </div>
+    </div>
+
+    
+    <div class="list card">
+
+      <div class="item item-icon-right" ng-click="showHideLandInfo('landInfoDetails');" style="border-top: 6px solid #855723;">
+        <h2 translate="landinfo_app.site_home.landinfo"></h2>
+        <i class="icon ion-ios-arrow-down" id="landInfoDetailsDown"></i><i class="icon ion-ios-arrow-up" id="landInfoDetailsUp" style="visibility:hidden"></i>
+      </div>
+
+      <div class="item item-body" id="landInfoDetails" style="display:none">
+        
+        <div class="item item-body">
+          <!-- <div ng-show="GLOBAL_METRIC_CONFIG === 'US_METRICS'"> -->
+          <div>
+            <!-- <h2><b>AWC soil profile</b> (cm) : <span style="font-size:200%;font-weight:900;color:#666">{{plot.analytic_data_soil.awc_soil_profile_awc.toFixed(1)}}</span></h2> -->
+            <h4><b>{{ "landinfo_common.awc20" | translate }}</b> ({{awc_unit}}): 
+            <span style="font-size:170%;font-weight:900;color:#666">{{new_soil_profile_awc_top20}}</span><text style="font-size:100%;color:red" id="displayErrorAWC_Top20"></text>&nbsp;<i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.awc_description')"></i></h4>
+            <h4><b>{{ "landinfo_common.awc100" | translate }}</b> ({{awc_unit}}): 
+            <span style="font-size:170%;font-weight:900;color:#666">{{new_soil_profile_awc_top100}}</span><text style="font-size:100%;color:red" id="displayErrorAWC_Top100"></text>&nbsp;<i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.awc_description')"></i></h4>
+            <h4><b>{{ "landinfo_common.infiltration" | translate }}</b> ({{infil_unit}}) : <span style="font-size:170%;font-weight:900;color:#666">{{infiltration_rate}}</span><text style="font-size:100%;color:red" id="displayErrorInfil"></text>&nbsp;<i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.infiltration_description')"></i></h4>
+            <div>
+                <p><b>{{ "landinfo_common.soil_organic_matter" | translate }}: </b><text align="center" id="txtOrganicMatter">1.0</text>&nbsp;%</p>
+                <div class="range range-positive">
+                  <i id="txtMinOM">0.1</i>
+                  <input type="range" id="idOMValue" ng-model="modelOMValue" min="0.1" max="8.0" step="0.1" ng-change="changeOMValue();"/>
+                  <i id="txtMaxOM">8.0</i>
+                  &nbsp;<i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.organic_matter_des')"></i>
+               </div>
+            </div>
+
+          </div>
+          <!--
+          <div ng-show="GLOBAL_METRIC_CONFIG === 'EN_METRICS'">
+            <h2><b>AWC soil profile</b> (in) : {{plot.analytic_data_soil.awc_soil_profile_awc_in.toFixed(2)}}</h2>
+          </div>
+          -->
+        </div>
+        <h2><b>Soil Properties by Depth</b></h2> 
+        <div class="row" >
+          <div class="col col-33 header" style="text-align:center;font-size:14px;border:1px solid black">
+            <b>DEPTH</b> ({{textureDepthUnit}})
+          </div>
+          <div class="col col-33 header" style="vertical-align:middle;text-align:center;font-size:14px;border:1px solid black">
+            <b>TEXTURE</b>
+          </div>
+          <div class="col col-33 header" style="vertical-align:middle;text-align:center;font-size:14px;border:1px solid black">
+            <b>ROCK FRAGMENT </b> % &nbsp;&nbsp;&nbsp;<i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.rock_fragment_des')"></i>
+          </div>
+        </div>
+        <div class="row" ng-repeat="(key, texture) in plot.texture track by $index" value="{{texture}}">
+          <div class="col col-33" style="text-align:center;border:1px solid black">
+            {{textureDepthArray[$index]}}
+          </div>
+          <div class="col col-33" style="text-align:center;border:1px solid black">
+            {{texture}}
+          </div>
+          <div class="col col-33" style="text-align:center;border:1px solid black">
+            {{plot.rock_fragment[key]}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    
+    <div ng-if="landCoverReviewArray && landCoverReviewArray.length > 0" class="list card" style="border-top: 6px solid #008000;">
+      <div ng-repeat="date in landCoverReviewArray track by $index" value="{{date}}">
+        <div class="item item-icon-right" ng-click="showHideLandCoverResult('landCoverDetails{{date}}', '{{date}}');" >
+          <!--<img src="mcfly.jpg">-->
+          <h2 >{{ "landinfo_app.site_home.landcover" | translate }} {{date}}</h2>
+          <i class="icon ion-ios-arrow-down" id="landCoverDetails{{date}}Down"></i><i class="icon ion-ios-arrow-up" id="landCoverDetails{{date}}Up" style="visibility:hidden"></i>
+        </div>
+
+        <div class="item item-body" id="landCoverDetails{{date}}" style="display:none">
+          <!--<img class="full-image" src="delorean.jpg">-->
+          
+            <h2> <b>{{ "landinfo_app.site_home.cover" | translate }} </b><i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landcover_common.cover_result')" ></i></h2>
+            <div class="row" ng-repeat="coverValue in coverValues[date] track by $index" >
+              <div class="col col-75 header">
+                <i class="icon ion-android-checkbox-blank " style="font-size:24px; color:{{fillColorArray[$index]}}"></i>  {{coverLabels[$index]}} 
+                <i ng-if="coverLabels[$index] == 'Total cover'" class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landcover_common.total_cover_result')" ></i>
+                <i ng-if="coverLabels[$index] == 'Bare ground'" class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landcover_common.bare_ground_result')" ></i>
+                <i ng-if="coverLabels[$index] == 'Foliar cover'" class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landcover_common.foliar_cover_result')" ></i>
+              </div>
+              <div class="col col-25" >{{coverValue}}</div>
+            </div>
+            <div class="lpks-graph">
+              <canvas id="coverBar"
+                class="chart chart-bar"
+                chart-options=coverBarOptions
+                chart-data=coverBarValues[date]
+                chart-labels=coverLabelsGraph
+                chart-caption=coverCaption
+                chart-colours=coverBarColors>
+              </canvas>
+            </div>
+          
+            <h2 style="border-top:1px solid #DDD; padding-top:10px"><b>{{ "landinfo_app.site_home.plant_cover" | translate }} </b><i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landcover_common.plant_cover_result')" ></i></h2>      
+            <div class="row" ng-repeat="plantCoverValue in plantCoverValues[date] track by $index" >
+              <div class="col col-75 header">
+                <i class="icon ion-android-checkbox-blank " style="font-size:24px; color:{{fillColorArray[$index]}}"></i>   {{plantCoverLabels[$index]}}
+              </div>
+              <div class="col col-25">{{plantCoverValue}}</div>
+            </div>
+              
+            <div class="lpks-graph">
+              <canvas id="plantCoverBar"
+                class="chart chart-bar"
+                chart-options=plantCoverBarOptions
+                chart-data=plantCoverBarValues[date]
+                chart-labels=plantCoverLabelsGraph
+                chart-caption=plantCoverCaption
+                chart-colours=plantCoverBarColors>
+              </canvas>
+            </div> 
+          
+            <h2 style="border-top:1px solid #DDD; padding-top:10px"><b>{{ "landinfo_app.site_home.canopy_height" | translate }}</b><i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landcover_common.canopy_height_result')" ></i></h2>
+              <div class="row" ng-repeat="canopyValue in canopyValues[date] track by $index" >
+                <div class="col col-75 header">
+                  <i class="icon ion-android-checkbox-blank " style="font-size:24px; color:{{fillColorArray[$index]}}"></i>   {{canopyLabels[$index]}}
+                </div>
+                <div class="col col-25">{{canopyValue}}</div>
+              </div>
+            
+              <div class="lpks-graph">
+                <canvas id="canopyBar"
+                  class="chart chart-bar"
+                  chart-options=canopyBarOptions
+                  chart-data=canopyBarValues[date]
+                  chart-labels=canopyLabelsGraph
+                  chart-caption=canopyCaption
+                  chart-colours=canopyBarColors>
+                </canvas>
+              </div> 
+          
+            <h2 style="border-top:1px solid #DDD; padding-top:10px"><b>{{ "landinfo_app.site_home.gaps" | translate }} </b> <i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landcover_common.gaps_result')" ></i></h2>
+            <div class="row">
+              <div class="col header" translate="landinfo_app.site_home.canopy_gaps"></div>
+              <div class="col">{{canopyGapValue[date]}}</div>
+            </div>
+            <div class="row">
+              <div class="col header" translate="landinfo_app.site_home.basal_gaps"></div>
+              <div class="col">{{basalGapValue[date]}}</div>
+            </div> 
+          
+            <h2 style="border-top:1px solid #DDD; padding-top:10px"><b>{{ "landinfo_app.site_home.species_density" | translate }}</b><i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landcover_common.species_density_result')" ></i></h2>
+            <div class="row">
+              <div class="col header">{{dominant_woody}}</div>
+              <div class="col"><span class="input-label">{{species_1_percent}} <text id="superscript_woody">/ {{species_unit}}<sup>2</sup></text></span></div>
+            </div>
+            <div class="row">
+              <div class="col header">{{dominant_nonwoody}}</div>
+              <div class="col"><span class="input-label">{{species_2_percent}} <text id="superscript_non_woody">/ {{species_unit}}<sup>2</sup></text></span></div>
+            </div> 
+          
+            <button class="button balanced" translate="landinfo_app.site_home.view_cover_data" ng-click="selectCoverPlot(date)">
+            </button>
+          
+
+        </div>
+      </div>
+      
+      <div ng-if="landCoverReviewArray && landCoverReviewArray.length > 1" class="item item-icon-right" ng-click="showHideLandCoverTrend('landCoverTrend');" >
+        <!--<img src="mcfly.jpg">-->
+        <h2 translate="landinfo_app.site_home.cover_trends"></h2>
+        <i class="icon ion-ios-arrow-down" id="landCoverTrendDown"></i><i class="icon ion-ios-arrow-up" id="landCoverTrendUp" style="visibility:hidden"></i>
+      </div>
+
+      <div class="item item-body" id="landCoverTrend" style="display:none">
+       <p class="lpks-p" translate="landinfo_app.site_home.cover_trend"><B> </B></p>
+
+         <div class="row" ng-repeat="coverTrendValue in coverLabels track by $index" >
+          <div class="col header">
+            <i class="icon ion-android-checkbox-blank " style="font-size:24px; color:{{trendColorArray[$index]}}"></i>     {{coverLabels[$index]}} 
+          </div>
+        </div>
+        <div class="lpks-graph">
+          <canvas id="trendline"
+            class="chart chart-line"
+            chart-data=coverTrendData
+            chart-labels=coverTrendLabels 
+            chart-legend="true" 
+            chart-series=coverLabels 
+            chart-click="onClick" 
+            chart-options="trend_line_options"
+            chart-colours="temp_line_colours">
+          </canvas>
+        </div>
+
+        <p class="lpks-p" translate="landinfo_app.site_home.plant_cover_trend"><B></B></p>
+        
+        <div class="row" ng-repeat="plantCoverLabel in plantCoverLabels track by $index" >
+          <div class="col header">
+            <i class="icon ion-android-checkbox-blank " style="font-size:24px; color:{{trendColorArray[$index]}}"></i>     {{plantCoverLabels[$index]}} 
+          </div>
+        </div>
+        <div class="lpks-graph">
+          <canvas id="trendline"
+            class="chart chart-line"
+            chart-data="plantCoverTrendData" chart-labels="coverTrendLabels" chart-legend="true" chart-series="plantCoverLabels" chart-click="onClick" chart-options="trend_line_options">
+          </canvas>
+        </div>
+
+        <p class="lpks-p" translate="landinfo_app.site_home.canopy_height_trend" ><B> </B></p>
+        <div class="row" ng-repeat="canopyTrendLabel in canopyTrendLabels track by $index" >
+          <div class="col header">
+            <i class="icon ion-android-checkbox-blank " style="font-size:24px; color:{{trendColorArray[$index]}}"></i>     {{canopyTrendLabels[$index]}} 
+          </div>
+        </div>
+        
+        <div class="lpks-graph">
+          <canvas id="trendline"
+            class="chart chart-line"
+            chart-data=canopyTrendData
+            chart-labels=coverTrendLabels 
+            chart-legend="true" 
+            chart-series=canopyTrendLabels 
+            chart-click="onClick" 
+            chart-options="trend_line_options"
+            chart-colours="temp_line_colours">
+          </canvas>
+        </div>
+
+        <p class="lpks-p" translate="landinfo_app.site_home.canopy_basal_gap_trend"><B> </B></p>
+        <div class="row" ng-repeat="gapTrendLabel in gapTrendLabels track by $index" >
+          <div class="col header">
+            <i class="icon ion-android-checkbox-blank " style="font-size:24px; color:{{trendColorArray[$index]}}"></i>     {{gapTrendLabels[$index]}} 
+          </div>
+        </div>
+        <div class="lpks-graph">
+          <canvas id="trendline"
+            class="chart chart-line"
+            chart-data=gapTrendData
+            chart-labels=coverTrendLabels 
+            chart-legend="true" 
+            chart-series=gapTrendLabels 
+            chart-click="onClick" 
+            chart-options="trend_line_options"
+            chart-colours="temp_line_colours">
+          </canvas>
+        </div>
+      </div>
+    
+    </div>
+
+    <div ng-if="!landCoverReviewArray || landCoverReviewArray.length < 1" class="list card" >
+      <div class="item  item-button-right" style="border-top: 6px solid #008000;">
+        {{ "landinfo_app.site_home.begin_cover" | translate }} 
+        <button class="button balanced" ng-click="selectCoverPlot()">
+          Start
+        </button>
+      </div>
+    </div>
+
+    <!--
+    <div class="list card">
+
+      <div class="item item-icon-right"  style="border-top: 4px solid #11c1f3 ;">
+        <a ui-sref="landpks.landinfo_soil-web"> <h2>Soil Web</h2> </a>
+        <i id="csoilWebDetailsDown" class="icon ion-ios-arrow-down"></i><i id="soilWebDetailsUp" class="icon ion-ios-arrow-up" style="visibility:hidden"></i>
+      </div>
+
+    </div>
+    -->
+    <!--
+    <div class="list card">
+
+      <div class="item item-icon-right" ng-click="showHideDetails('cropMonitorDetails');" style="border-top: 4px solid #11c1f3 ;">
+        <h2>Crop Monitor</h2>
+        <i id="cropMonitorDetailsDown" class="icon ion-ios-arrow-down"></i><i id="cropMonitorDetailsUp" class="icon ion-ios-arrow-up" style="visibility:hidden"></i>
+      </div>
+
+      <div class="item item-body" id="cropMonitorDetails" style="display:none">
+        <p>
+          Lorem ipsum dolor sit amet, no iudico assentior vel. Paulo appetere ea per, mea facete iracundia ex. Ut has putant dignissim. Cum an habeo laudem pertinacia. Pri in semper putant deserunt. Mucius explicari adversarium ut eam.
+        </p>
+        <p>
+        </p>
+      </div>
+
+    </div>
+    -->
+
+
+
+  </ion-content>
+</ion-view>

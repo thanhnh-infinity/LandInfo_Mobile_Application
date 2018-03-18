@@ -1,0 +1,115 @@
+<link href="landinfo_css/common.css" rel="stylesheet">
+<link href="landinfo_css/soillayers.css" rel="stylesheet">
+<link href="landinfo_css/landcover.css" rel="stylesheet">
+
+<ion-view view-title="" cache-view="false">
+
+<ion-nav-title><p>&nbsp;Soil Textures</p></ion-nav-title>
+<ion-nav-buttons side="right"></ion-nav-buttons>
+
+
+<ion-content class="padding body" overflow-scroll="true">
+  <div class="row">
+
+    <div class="col col-10" style="text-align:center;padding:0;margin:0" >
+
+      <!--<div class="layertab-inactive" id="soil_horizon_help" ng-click="showSoilHorizonInfo()">
+        <i class="icon ion-help balanced" style="font-size:32px"></i>
+      </div>-->          
+      <div class="layertab-active" id="soil_horizon_1" ng-click="selectLayer('soil_horizon_1');">
+        <div>{{tabLabels[0]}}</div>
+        <i class="icon ion-arrow-down-c dark" id="soil_horizon_1_icon" style="font-size:32px"></i>
+        <div>{{tabLabels[1]}}</div>
+      </div>
+      <div class="layertab-inactive" id="soil_horizon_2" ng-click="selectLayer('soil_horizon_2');">
+        <div>{{tabLabels[1]}}</div>
+        <i class="icon ion-arrow-down-c dark" id="soil_horizon_2_icon" style="font-size:32px"></i>
+        <div>{{tabLabels[2]}}</div>
+      </div>
+      <div class="layertab-inactive" id="soil_horizon_3" ng-click="selectLayer('soil_horizon_3');">
+        <div>{{tabLabels[2]}}</div>
+        <i class="icon ion-arrow-down-c dark" id="soil_horizon_3_icon" style="font-size:32px"></i>
+        <div>{{tabLabels[3]}}</div>
+      </div>
+      <div class="layertab-inactive" id="soil_horizon_4" ng-click="selectLayer('soil_horizon_4');">
+        <div>{{tabLabels[3]}}</div>
+        <i class="icon ion-arrow-down-c dark" id="soil_horizon_4_icon" style="font-size:32px"></i>
+        <div>{{tabLabels[4]}}</div>
+      </div>
+      <div class="layertab-inactive" id="soil_horizon_5" ng-click="selectLayer('soil_horizon_5');">
+        <div>{{tabLabels[4]}}</div>
+        <i class="icon ion-arrow-down-c dark" id="soil_horizon_5_icon" style="font-size:32px"></i>
+        <div>{{tabLabels[5]}}</div>
+      </div>            
+      <div class="layertab-inactive" id="soil_horizon_6" ng-click="selectLayer('soil_horizon_6');">
+        <div>{{tabLabels[5]}}</div>
+        <i class="icon ion-arrow-down-c dark" id="soil_horizon_6_icon" style="font-size:32px"></i>
+        <div>{{tabLabels[6]}}</div>
+      </div>     
+      <div class="layertab-inactive" id="soil_horizon_7" ng-click="selectLayer('soil_horizon_7');">
+        <div>{{tabLabels[6]}}</div>
+        <i class="icon ion-arrow-down-c dark" id="soil_horizon_7_icon" style="font-size:32px"></i>
+        <div>{{tabLabels[7]}}</div>
+      </div>      
+    </div>
+
+    <div class="col col-90" style="background-color:white" id="soilHorizonForm">
+      <H2>{{layerLabel}}</H2>
+
+      <h4 class="dark">Texture</h4>
+      <label class="item item-select">
+        <h2>Texture</h2>
+        <select id="textureID"  data-ng-options="texture for texture in textures" data-ng-model="textureFilter.selectedOption"  ng-change="selectTexture(textureFilter.selectedOption)" >
+        </select>
+      </label>
+      <div class="row" >
+        <div class="col col-67">Don't know your Soil Texture?  We can guide you.</div>
+        <div class="col col-33">
+          <button class="button button-balanced button-small" style="width:100%" ng-click="goToGuideMeAction();"><b>Guide me</b></button>
+        </div>
+      </div>
+      <div></div>
+      <h4 class="dark">Rock Fragment Volume<i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.rock_fragment_des')"></i></h4>
+
+      <div class="row" style="text-align:center">
+        <div class="col">
+          <img  src="landinfo_media/rock_fragment_volume/Rock_Fragment_1.png" id="Rock_Fragment_1" ng-click="selectRockFragment('Rock_Fragment_1')" style="max-width:70%;"/>
+          <div>0-1%</div>
+        </div>
+        <div class="col">
+          <img  src="landinfo_media/rock_fragment_volume/Rock_Fragment_15.png" id="Rock_Fragment_15" ng-click="selectRockFragment('Rock_Fragment_15')" style="max-width:70%;"/>
+          <div>1-15%</div>
+        </div>
+      </div>
+      <div class="row" style="text-align:center">
+        <div class="col">
+          <img  src="landinfo_media/rock_fragment_volume/Rock_Fragment_35.png" id="Rock_Fragment_35" ng-click="selectRockFragment('Rock_Fragment_35')" style="max-width:70%;"/>
+          <div>15-35%</div>
+        </div>
+        <div class="col">
+          <img  src="landinfo_media/rock_fragment_volume/Rock_Fragment_60.png" id="Rock_Fragment_60" ng-click="selectRockFragment('Rock_Fragment_60')" style="max-width:70%;"/>
+          <div>35-60%</div>
+        </div>
+      </div>
+      <div class="row" style="text-align:center">
+        <div class="col">
+          <img  src="landinfo_media/rock_fragment_volume/Rock_Fragment_90.png" id="Rock_Fragment_90" ng-click="selectRockFragment('Rock_Fragment_90')" style="max-width:70%;"/>
+          <div>>60%</div>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+      <h4 class="dark">{{bedrockDepth_label}}</h4>
+      <label class="item item-select">
+        <h2>Bedrock Depth</h2>
+        <select id="bedrockID" data-ng-options="bedrock.label for bedrock in bedrockArray" data-ng-model="selectedBedrock" ng-change="selectBedrock(selectedBedrock)" >    
+        </select>
+      </label>
+    </div>
+    <!--<div class="col col-90" id="soilHorizonInfo">
+    <h2>Information</h2>        
+    </div>-->
+  </div>
+
+  </ion-content>
+</ion-view>

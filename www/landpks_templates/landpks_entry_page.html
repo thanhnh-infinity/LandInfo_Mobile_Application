@@ -1,0 +1,70 @@
+<link href="landpks_css/landuse.css" rel="stylesheet">
+<ion-view align-title="left" title="LANDPKS" hide-back-button="true" hide-tabs hide-nav-bar="true">
+
+ 	<ion-content class="fullHeight">
+    <ion-slide-box ng-if="showSlideBox === true" on-slide-changed="slideHasChanged($index)">
+      <ion-slide>
+        <img src="landpks_img/onboarding1.png" style="width:100%" />
+      </ion-slide>
+      <ion-slide>
+        <img src="landpks_img/onboarding2.png" style="width:100%" />
+      </ion-slide>  
+      <ion-slide>
+        <img src="landpks_img/onboarding3.png" style="width:100%" />
+      </ion-slide>
+      <ion-slide>
+        <div class="row">
+               <div class="col col-100 " align="center" ng-click="fromEntryPage_Goto('LOGIN_PAGE');">
+                    <img style="width:200px;height:200px;top: 100px;border:solid #009100 4px" src="landpks_img/landinfo_logo.png" />
+                    <br/>
+                    <h5>Login or Add New Account</h5>
+               </div>
+        </div>
+        <hr class="horizontalbreak">
+        <div class="row">
+               <div class="col col-33" align="center" ng-click="fromEntryPage_Goto('WEB_SITE');">
+                    <!--  <img style="width:80%;height:30%" src="landinfo_img/Final_Logo_GH.png" /> -->
+                    <img style="width:90px;height:90px" src="landpks_img/Final_Logo_GH.png" />
+                    <br/>
+                    <h5>Web-Site</h5>
+               </div>
+               <div class="col col-33" align="center" ng-click="fromEntryPage_Goto('DATA_POLICY');">
+                    <img style="width:90px;height:90px" src="landpks_img/policy_icon.png" />
+                    <h5>Data & Privacy Policy</h5>
+               </div>
+               <div class="col col-33" align="center" ng-click="fromEntryPage_Goto('ABOUT')">
+                    <img style="width:90px;height:90px" src="landpks_img/info-button.png" />
+                    <h5>Version : {{landpks_app_version}}</h5>
+               </div>
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+
+    <div ng-if="showSlideBox === false">
+      <div class="row">
+               <div class="col col-100 " align="center" ng-click="fromEntryPage_Goto('LOGIN_PAGE');">
+                    <img style="width:200px;height:200px;top: 100px;border:solid #009100 4px" src="landpks_img/landinfo_logo.png" />
+                    <br/>
+                    <h5>Login or Add New Account</h5>
+               </div>
+        </div>
+        <hr class="horizontalbreak">
+        <div class="row">
+               <div class="col col-33" align="center" ng-click="fromEntryPage_Goto('WEB_SITE');">
+                    <!--  <img style="width:80%;height:30%" src="landinfo_img/Final_Logo_GH.png" /> -->
+                    <img style="width:90px;height:90px" src="landpks_img/Final_Logo_GH.png" />
+                    <br/>
+                    <h5>Web-Site</h5>
+               </div>
+               <div class="col col-33" align="center" ng-click="fromEntryPage_Goto('DATA_POLICY');">
+                    <img style="width:90px;height:90px" src="landpks_img/policy_icon.png" />
+                    <h5>Data & Privacy Policy</h5>
+               </div>
+               <div class="col col-33" align="center" ng-click="fromEntryPage_Goto('ABOUT')">
+                    <img style="width:90px;height:90px" src="landpks_img/info-button.png" />
+                    <h5>Version : {{landpks_app_version}}</h5>
+               </div>
+        </div>
+    </div>
+	</ion-content>
+	</ion-view>

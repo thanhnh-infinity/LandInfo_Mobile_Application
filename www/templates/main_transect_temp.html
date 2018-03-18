@@ -1,0 +1,91 @@
+<link href="css/main_transect.css" rel="stylesheet">
+<ion-view view-title="" hide-back-button="true" cache-view="false">
+
+<ion-nav-title style="padding-left:0px">
+   <a align="left"
+      class="button button-icon ion-ios-arrow-back"
+      ng-click="goBack()"
+      style="padding-left:0px;padding-top:5px;width:3px">
+   </a>
+   <a align="left" class="button button-icon" ng-click="goBack()" style="padding-left:0px">
+      <img src="img/ic_launcher.png" class="title-image" align="left">
+      <p style="padding-top:5px">&nbsp;New site</p>
+   </a>
+</ion-nav-title>
+
+<ion-content class="padding body" overflow-scroll="true">
+    <br/>
+    <div class="row" style="height:70px;">
+               <div class="col col-33" align="left">
+                  <button id="btnSubmitLandCover2" class="button button-stable">Submit</button>
+               </div>
+               <div class="col col-33">
+               </div>
+               <div class="col col-33" align="right">
+               </div>
+    </div>
+
+    <div class="row" style="height:100px;">
+               <div class="col col-33">
+
+               </div>
+               <div class="col col-33" align="center">
+                    <img ng-src="img/North_Dim.png" id="imgNorth" style="width:80%; height:90%"/>
+               </div>
+               <div class="col col-33">
+
+               </div>
+    </div>
+    <div class="row" style="height:100px;">
+               <div class="col col-33" align="right">
+                    <img  ng-src="img/West_Dim.png" id="imgWest" style="width:80%; height:90%"/>
+               </div>
+               <div class="col col-33" align="center">
+                    <img  ng-src="img/ic_landinfo_logo.png" ng-click="goto_LandInfo()"  id="imgLandInfo" style="width:80%; height:90%"/>
+               </div>
+               <div class="col col-33" align="left">
+                    <img  ng-src="img/East_Dim.png" id="imgEast" style="width:80%; height:90%"/>
+               </div>
+    </div>
+    <div class="row" style="height:100px;">
+               <div class="col col-33">
+
+               </div>
+               <div class="col col-33" align="center">
+                    <img  ng-src="img/South_Dim.png" id="imgSouth" style="width:80%; height:90%"/>
+               </div>
+               <div class="col col-33">
+
+               </div>
+    </div>
+
+    <br/>
+	<label class="item item-input">
+	    <span class="input-label">Dominant Woody Species (by cover)</span>
+	</label>
+	<label class="item item-input">
+      <span>1&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	    <input type="text" id="dominant_woody" ng-model="dominant_woody_species"/>
+	</label>
+  <label class="item item-input">
+      <span>2&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <input type="text" id="dominant_woody_2" ng-model="dominant_woody_species_2"/>
+  </label>
+	<br/>
+
+	<label class="item item-input">
+	    <span class="input-label">Dominant Non-Woody Species (by cover)</span>
+	</label>
+	<label class="item item-input">
+      <span>1&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	    <input type="text" id="dominant_nonwoody" ng-model="dominant_nonwoody_species"/>
+	</label>
+  <label class="item item-input">
+      <span>2&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	    <input type="text" id="dominant_nonwoody_2" ng-model="dominant_nonwoody_species_2"/>
+	</label>
+	<br/>
+	<br/>
+
+</ion-content>
+</ion-view>

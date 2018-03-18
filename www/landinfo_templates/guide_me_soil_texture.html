@@ -1,0 +1,119 @@
+<link href="landinfo_css/common.css" rel="stylesheet">
+<link href="landinfo_css/guide_me.css" rel="stylesheet">
+<ion-view align-title="left" cache-view="false">
+	<ion-nav-title><p>Texture Guide</p></ion-nav-title>
+	<ion-nav-buttons side="right"></ion-nav-buttons>
+
+  <ion-content class="padding body" overflow-scroll="true">
+
+     <br/>
+	 <div id="soil_form_a_ball">
+	    <label class="item item-input" ng-click="openHelp('SOIL_FORM_A_BALL');">
+	        <span class="input-label" style="width:180px;padding-right:0px">
+	           Does the soil form a ball
+	        </span>
+	        <span class="input-label" style="padding-left:0px">
+	              <div class="buttons">
+                   <img src="landinfo_media/icon/ic_menu_help.png" style="width:30px;height:30px" ng-click="openHelp('SOIL_FORM_A_BALL')" />
+                </div>
+	        </span>
+
+	    </label>
+
+	    <label class="item">
+	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="radioBall" name="soil_form_a_ball" value="YES" ng-click="clickSoilFormABall('YES');">
+	        <label for="radioBall" id="yesSoilFormABall"> Yes</label>
+	    </label>
+        <label class="item">
+	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="radioBall" name="soil_form_a_ball" value="NO" ng-click="clickSoilFormABall('NO');">
+	        <label for="radioBall" id="noSoilFormABall"> No</label>
+	    </label>
+	 </div>
+	 <br/>
+	 <div id="soil_form_a_ribbon">
+	    <label class="item item-input" ng-click="openHelp('SOIL_FROM_A_RIBBON');">
+	        <span class="input-label" style="width:180px;padding-right:0px">
+            Does the soil form a ribbon 
+          </span>
+	        <span class="input-label" style="padding-left:0px">
+	            <div class="buttons">
+                   <img src="landinfo_media/icon/ic_menu_help.png" style="width:30px;height:30px" ng-click="openHelp('SOIL_FORM_A_RIBBON')" />
+                </div>
+	        </span>
+	    </label>
+	    <label class="item">
+	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="soil_form_a_ribbon" id="radioRibbon" value="YES" ng-click="clickSoilFormARibbon('YES');"><label for="radioRibbon" id="yesSoilFormARibbon"> Yes</label>
+	    </label>
+        <label class="item">
+	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="soil_form_a_ribbon" id="radioRibbon" value="NO" ng-click="clickSoilFormARibbon('NO');"><label for="radioRibbon" id="noSoilFormARibbon"> No</label>
+	    </label>
+	 </div>
+	 <br/>
+	 <div id="length_of_ribbon">
+	    <label class="item item-input" ng-click="openHelp('LENGTH_OF_RIBBON');">
+	        <span class="input-label" style="width:120px;padding-right:0px">
+              Length of ribbon
+          </span>
+	        <span class="input-label" style="padding-left:0px">
+	            <div class="buttons">
+                   <img src="landinfo_media/icon/ic_menu_help.png" style="width:30px;height:30px" ng-click="openHelp('LENGTH_OF_RIBBON')" />
+                </div>
+	        </span>
+	    </label>
+	    <label class="item">
+	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="radioLength" name="length_of_ribbon" value="2.5cm" ng-click="clickLengthOfRibbon('2.5');">
+	        <label for="radioRibbon" id="1_length_of_ribbon"> {{label_smaller_2_5cm}}</label>
+	    </label>
+        <label class="item">
+	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="radioLength" name="length_of_ribbon" value="2.5-5cm" ng-click="clickLengthOfRibbon('2.5-5');">
+	        <label for="radioRibbon" id="2_length_of_ribbon"> {{label_2_5_to_5cm}}</label>
+
+	    </label>
+	    <label class="item">
+	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="radioLength" name="length_of_ribbon" value="5cm" ng-click="clickLengthOfRibbon('5');">
+	        <label for="radioRibbon" id="3_length_of_ribbon"> {{label_greter_5_cm}}</label>
+	    </label>
+	 </div>
+	 <br/>
+	 <div id="soil_feel">
+	    <label class="item item-input" ng-click="openHelp('SOIL_FEEL')">
+	        <span class="input-label" style="width:60px;padding-right:0px">
+              Soil feel
+          </span>
+	        <span class="input-label" style="padding-left:0px">
+	            <div class="buttons">
+                   <img src="landinfo_media/icon/ic_menu_help.png" style="width:30px;height:30px" ng-click="openHelp('SOIL_FEEL')" />
+                </div>
+	        </span>
+	    </label>
+	    <label class="item">
+	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="optGritty" type="radio" name="soil_feel" value="gritty" ng-click="clickSoilFeel('GRITTY');">
+	        <label for="optGritty" id="gritty_soil_feel"> Gritty</label>
+	    </label>
+        <label class="item">
+	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="optNot" type="radio" name="soil_feel" value="not_gritty_or_smooth" ng-click="clickSoilFeel('NOT_GRITTY_SMOOTH');">
+	        <label for="optGritty" id="not_soil_feel"> Not gritty or smooth</label>
+	    </label>
+	    <label class="item">
+	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="optSmooth" type="radio" name="soil_feel" value="smooth" ng-click="clickSoilFeel('SMOOTH');">
+	        <label for="optGritty" id="smooth_soil_feel"> Smooth</label>
+	    </label>
+	 </div>
+	 <br/>
+	 <br/>
+  </ion-content>
+
+  <ion-footer-bar align-title="left" class="bar-stable auto-height">
+		  <div>
+		    <h5>Soil Texture:</h5>
+		  </div>
+		  &nbsp;
+		  <div>
+		  	<b><h5 id="textureValue"></h5></b>
+		  </div>
+		  &nbsp;
+		  <div id="btnSelect" class="buttons" ng-click="selectTexture_GuideMe();">
+		    <button class="button button-balanced">Use this texture</button>
+		  </div>
+</ion-footer-bar>
+</ion-view>

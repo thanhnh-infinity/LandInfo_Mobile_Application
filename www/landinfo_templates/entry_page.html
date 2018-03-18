@@ -1,0 +1,40 @@
+<link href="landinfo_css/common.css" rel="stylesheet">
+<link href="landinfo_css/landuse.css" rel="stylesheet">
+<ion-view align-title="left" hide-back-button="true" hide-tabs>
+  <ion-nav-title style="padding-left:0">
+      <a align="left" class="button button-icon" ui-sref="#" style="padding-left:0px">
+          <img src="landinfo_img/ic_launcher.png" class="title-image" align="left" style="padding-left:0px" />
+          <p style="padding-top:5px">&nbsp;LandInfo</p>
+
+      </a>
+  </ion-nav-title>
+
+	 <ion-nav-buttons side="right" style="color: grey;"></ion-nav-buttons>
+
+ 	<ion-content class="padding body" overflow-scroll="true">
+ 	      <div class="row">
+               <div class="col col-100 " align="center" ng-click="fromEntryPage_Goto('LOGIN_PAGE');">
+                    <img style="width:200px;height:200px;top: 40px;" src="landinfo_img/landinfo_logo.png" />
+                    <br/>
+                    <h5>Add New Account</h5>
+               </div>
+         </div>
+         <hr class="horizontalbreak">
+         <div class="row">
+               <div class="col col-33" align="center" ng-click="fromEntryPage_Goto('WEB_SITE');">
+                    <!--  <img style="width:80%;height:30%" src="landinfo_img/Final_Logo_GH.png" /> -->
+                    <img style="width:90px;height:90px" src="landinfo_img/Final_Logo_GH.png" />
+                    <br/>
+                    <h5>Web-Site</h5>
+               </div>
+               <div class="col col-33" align="center" ng-click="fromEntryPage_Goto('DATA_POLICY');">
+                    <img style="width:90px;height:90px" src="landinfo_img/policy_icon.png" />
+                    <h5>Data & Privacy Policy</h5>
+               </div>
+               <div class="col col-33" align="center" ng-click="fromEntryPage_Goto('ABOUT')">
+                    <img style="width:90px;height:90px" src="landinfo_img/info-button.png" />
+                    <h5>Version : 0.2.14</h5>
+               </div>
+         </div>
+	</ion-content>
+	</ion-view>

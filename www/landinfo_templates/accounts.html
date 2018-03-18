@@ -1,0 +1,23 @@
+<link href="landinfo_css/common.css" rel="stylesheet">
+<link href="landinfo_css/accounts.css" rel="stylesheet">
+<div>
+
+<ion-view  align-title="left">
+
+	<ion-nav-title>
+      <p>&nbsp;{{labels.title}}</p>
+  	</ion-nav-title>
+  	<ion-nav-buttons side="right">
+	</ion-nav-buttons>
+
+	<ion-content class="padding body" overflow-scroll="true">
+		<p class="lpks-p"> {{labels.select_account}} </p>
+		<ion-list> 
+			<ion-item class="lpks-id" ng-repeat="account in accounts" ng-click="selectAccount(account)">
+				{{account.email}}
+			</ion-item> 
+		</ion-list>
+		<a ng-if="accounts.length == 0" class="item item-icon-right othercomponent" ui-sref="landpks.landpks_login">{{labels.add_account}} <i class="icon ion-plus-round icon-accessory"></i> </a> 
+	</ion-content> 
+</ion-view>
+</div>

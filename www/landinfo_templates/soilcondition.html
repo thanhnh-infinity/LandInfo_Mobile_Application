@@ -1,0 +1,29 @@
+<link href="landinfo_css/landcover.css" rel="stylesheet">
+<link href="landinfo_css/common.css" rel="stylesheet">
+
+<ion-view view-title="">
+  <ion-nav-title><p>&nbsp;Soil Limitations</p></ion-nav-title>
+  <ion-nav-buttons side="right"></ion-nav-buttons>
+
+	<ion-content class="padding body"overflow-scroll="true">
+    <div class="row">
+       <div class="col col-55 box" align="center" style="border-right:2px solid #009100">
+          <img class="content" id="cracked" ng-src="{{soilcondition_soilcracks}}" ng-click="selectCracking(true)" style="width:95%; height:95%; top:0px; margin:auto;" />
+       </div>
+      <div class="col col-50 box" align="center" style="border-left:2px solid #009100">
+        <img class="content" id="salted" ng-src="{{soilcondition_surfacesalt}}" ng-click="selectSalt(true)" style="width:95%; height:95%; top:0px; margin:auto;"/>
+      </div>
+    </div>
+         <!--<div class="row responsive-md"> -->
+    <div class="row">
+      <div class="col col-50 box" align="center" style="border-right:2px solid #009100">
+        <img class="content" id="notCracked" ng-src="{{soilcondition_nosoilcracks}}" ng-click="selectCracking(false)" style="width:95%; height:95%; top:0px; margin:auto;"/>
+      </div>
+
+      <div class="col col-50 box" align="center" style="border-left:2px solid #009100">
+        <img class="content" id="notSalted" ng-src="{{soilcondition_nosurfacesalt}}" ng-click="selectSalt(false)" style="width:95%; height:95%; top:0px; margin:auto;"/>
+      </div>
+    </div>
+
+	</ion-content>
+</ion-view>

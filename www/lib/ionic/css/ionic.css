@@ -4950,6 +4950,12 @@ a.item-content {
     width: 35px;
 }
 
+ .title-image1 {
+    margin-top: 5px;
+    height: 20px;
+    width: 30px;
+}
+
 /**
  * Item Button
  * --------------------------------------------------

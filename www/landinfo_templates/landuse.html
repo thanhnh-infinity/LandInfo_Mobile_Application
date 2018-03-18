@@ -1,0 +1,65 @@
+<link href="landinfo_css/landuse.css" rel="stylesheet">
+<link href="landinfo_css/common.css" rel="stylesheet">
+<link href="landinfo_css/landcover.css" rel="stylesheet">
+<link href="landinfo_css/tab.css" rel="stylesheet">
+<ion-view view-title="">
+
+  <ion-nav-title><p>&nbsp;Land Use</p></ion-nav-title>
+  <ion-nav-buttons side="right"></ion-nav-buttons>
+  <!--<ion-header-bar class="bar-subheader">
+      <div class="button-bar">
+          <a class="button button-outline button-balanced" ui-sref="landpks.landinfo_landcover">Land Cover</a>
+          <a class="button button-balanced">Grazing</a>
+      </div>
+  </ion-header-bar> -->
+
+  <!--striped tab style version-->
+  <ion-header-bar class="bar-subheader">
+      <div class="button-bar">
+          <!--<a class="lpks-nav-button button button-outline button-balanced" ui-sref="landpks.landinfo_landcover" style="border:0;background-color:white;color:green">Land Cover</a>-->
+          <a class="lpks-nav-button button button-outline button-balanced" ui-sref="landpks.landinfo_landcover">Land Cover</a>
+          <a class="lpks-nav-button button button-balanced">Grazing</a>
+      </div>
+  </ion-header-bar> 
+  
+  <ion-content class="padding body" overflow-scroll="true">
+
+       <div id="grazeCategories" >
+        <div class="row">
+           <div class="col col-50 box" align="center">
+                <img id="notGrazed"  class="content" ng-src="{{landuse_current_not_grazed}}" ng-click="selectGrazing(false)" style="width: 95%; height: 95%; top:0px" />
+           </div>
+           <div class="col col-50 box" align="center">
+                <img id="CATTLE"  class="content" ng-src="{{landuse_current_cattle}}" ng-click="select_LandUse_Grazing('CATTLE')" style="width: 95%; height: 95%; top:0px" />
+           </div>
+        </div>        
+
+        <div class="row">
+           <div class="col col-50 box" align="center">
+                <img id="HORSE"  class="content" ng-src="{{landuse_current_horse}}" ng-click="select_LandUse_Grazing('HORSE')" style="width: 95%; height: 95%; top:0px" />
+           </div>
+           <div class="col col-50 box" align="center">
+                <img id="GOAT"  class="content" ng-src="{{landuse_current_goat}}" ng-click="select_LandUse_Grazing('GOAT')" style="width: 95%; height: 95%; top:0px" />
+           </div>
+        </div>
+        <div class="row">
+           <div class="col col-50 box" align="center">
+                <img id="SHEEP" class="content" ng-src="{{landuse_current_sheep}}" ng-click="select_LandUse_Grazing('SHEEP')" style="width: 95%; height: 95%; top:0px" />
+           </div>
+           <div class="col col-50 box" align="center">
+                <img id="PIG" class="content" ng-src="{{landuse_current_pig}}" ng-click="select_LandUse_Grazing('PIG')" style="width: 95%; height: 95%; top:0px" />
+           </div>
+        </div>
+        <div class="row">
+           <div class="col col-50 box" align="center">
+                <img id="US_WILDLIFE" class="content" ng-src="{{landuse_current_us_wildlife}}" ng-click="select_LandUse_Grazing('US_WILDLIFE')" style="width: 95%; height: 95%; top:0px" />
+           </div>
+           <div class="col col-50 box" align="center">
+                <img id="WILDLIFE" class="content" ng-src="{{landuse_current_wildlife}}" ng-click="select_LandUse_Grazing('WILDLIFE')" style="width: 95%; height: 95%; top:0px" />
+           </div>
+      </div>
+
+      </div>
+
+  </ion-content>
+</ion-view>

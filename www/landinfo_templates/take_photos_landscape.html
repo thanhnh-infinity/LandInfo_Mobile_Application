@@ -1,0 +1,78 @@
+<link href="landinfo_css/photos.css" rel="stylesheet">
+<ion-view hide-back-button="true" view-title="" cache-view="false">
+
+
+<ion-nav-title>
+   <a align="left" class="button button-icon ion-ios-arrow-back" ng-click="goBack();"
+      style="padding-left:0px;width:3px;padding-top:5px"></a>
+   <a align="left" class="button button-icon" style="padding-left:0px"
+      ng-click="goBack();"><img src="landinfo_img/ic_launcher.png" class="title-image" align="left">
+      <p style="padding-top:5px">&nbsp; LandScape photos</p>
+      </a>
+</ion-nav-title>
+
+       <ion-content class="padding body" overflow-scroll="true">
+       <br/>
+       <div id="div_north">
+	       <p class="lpks-p">
+	           <b>&nbsp;LandScape North</b> &nbsp;&nbsp;
+	           <div id="aTagNorth" style="visibility:hidden;">
+	              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a  class="button icon ion-camera" ui-sref="{{navigator_landscape_north}}"></a>
+                &nbsp;&nbsp;
+                OR
+                &nbsp;&nbsp;
+                <input type="file" name="northUpload" id="northUpload" accept="image/*"/>
+	           </div>
+	       </p>
+	       <img id="northImage" ng-src="{{landscape_north_photo_data_url}}" style="width:300px; height:200px" class="lpks-img" />
+       </div>
+       <br>
+       <div id="div_east">
+       		<p class="lpks-p">
+       		   <b>&nbsp;Landscape East</b> &nbsp;&nbsp;
+       		   <div id="aTagEast" style="visibility:hidden;">
+       		     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <a class="button icon ion-camera" ui-sref="{{navigator_landscape_east}}"></a>
+               &nbsp;&nbsp;
+               OR
+               &nbsp;&nbsp;
+               <input type="file" name="eastUpload" id="eastUpload" accept="image/*"/>
+       		   </div>
+       		</p>
+       		<img id="eastImage" ng-src="{{landscape_east_photo_data_url}}" style="width:300px; height:200px" class="lpks-img" />
+       </div>
+       <br>
+       <div id="div_south">
+	           <p class="lpks-p">
+	               <b>&nbsp;Landscape South</b>&nbsp;&nbsp;
+	               <div id="aTagSouth" style="visibility:hidden;">
+	                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a  class="button icon ion-camera" ui-sref="{{navigator_landscape_south}}"></a>
+                    &nbsp;&nbsp;
+                    OR
+                    &nbsp;&nbsp;
+                    <input type="file" name="southUpload" id="southUpload" accept="image/*"/>
+	               </div>
+	           </p>
+           <img id="southImage" ng-src="{{landscape_south_photo_data_url}}" style="width:300px; height:200px" class="lpks-img" />
+       </div>
+       <br>
+       <div id="div_west" >
+           <p class="lpks-p">
+               <b>&nbsp;Landscape West</b> &nbsp;&nbsp;
+	           <div id="aTagWest" style="visibility:hidden;">
+	                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a  class="button icon ion-camera" ui-sref="{{navigator_landscape_west}}"></a>
+                  &nbsp;&nbsp;
+                  OR
+                  &nbsp;&nbsp;
+                  <input type="file" name="westUpload" id="westUpload" accept="image/*"/>
+	           </div>
+           </p>
+           <img id="westImage" ng-src="{{landscape_west_photo_data_url}}" style="width:300px; height:200px" class="lpks-img" />
+       </div>
+
+
+        </ion-content>
+      </ion-view>

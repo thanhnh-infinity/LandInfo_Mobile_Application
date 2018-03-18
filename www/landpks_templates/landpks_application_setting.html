@@ -1,0 +1,49 @@
+<link href="landinfo_css/common.css" rel="stylesheet">
+<link href="landinfo_css/accounts.css" rel="stylesheet">
+
+<ion-view align-title="center" hide-back-button="false" cache-view="false">
+  <ion-nav-title >
+    <p>&nbsp;{{labels.app_setting_title}}</p>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+  </ion-nav-buttons>
+
+  <ion-content class="padding body" overflow-scroll="true">
+     <br/>
+     <div>
+        <ion-toggle ng-model="bUSorENMetric" toggle-class="toggle-calm" ng-change="changeMetricCountry();">{{labels.unit}}&nbsp;&nbsp;{{label_country_metric}}</ion-toggle>
+     </div>
+     <br/>
+     <div class="item item-input">
+         <span class="input-label">{{labels.language}}</span>
+         <div align="left" style="width: 65%">
+            <select ng-model="selectedLanguage" ng-change="selectLanguage(selectedLanguage)">
+               <option value="en">English</option>
+               <option value="sp">Spanish</option>
+            </select>
+         </div>
+
+     </div>
+     <br/>
+     <div class="item item-input">
+         <span class="input-label">{{ "landpks_app.application_setting.debugging" | translate }}</span>
+         <button class="ion-button round" ng-click="send_debug_report();">{{ "landpks_app.application_setting.btn_debugging" | translate }}</button>
+     </div>
+     <br/>
+     <!--
+     <label class="item item-input">
+          <span class="input-label">Display units in Metric or English</span>
+          <span class="input-label">
+             <ion-toggle ng-model="bUSorENMetric" toggle-class="toggle-calm" ng-change="changeMetricCountry();">{{label_country_metric}}</ion-toggle>
+          </span>
+     </label>
+     -->
+     <!--<div>
+        <ion-toggle ng-model="settings.mapPlots" toggle-class="toggle-calm" ng-change="changeMapPlots();">{{labels.map_plot}} {{mapPlots}}</ion-toggle>
+     </div>
+     <div>
+        <ion-toggle ng-model="settings.colorCharts" toggle-class="toggle-calm" ng-change="changeColorCharts();">{{labels.color_chart}}</ion-toggle>
+     </div>
+    -->
+  </ion-content>
+</ion-view>

@@ -1,0 +1,63 @@
+<!-- <link href="css/main_transect.css" rel="stylesheet"> -->
+<ion-view view-title="" hide-back-button="true" cache-view="false">
+
+<ion-nav-title>
+   <a align="left" class="button button-icon ion-ios-arrow-back" ng-click="goBack();"
+      style="padding-left:0px;width:3px;padding-top:5px"></a>
+   <a align="left" class="button button-icon"
+      style="padding-left:0px"
+      ng-click="goBack();">
+      <img src="landinfo_img/ic_launcher.png" class="title-image" align="left">
+      <p style="padding-top:5px">&nbsp; Landscape photos</p>
+    </a>
+</ion-nav-title>
+
+<ion-nav-buttons side="right">
+    <!--
+    <ion-toggle style="background-color:LimeGreen"
+                ng-model="compassMode"
+                ng-change="changeCompassMode()"
+                toggle-class="toggle-calm">Compass</ion-toggle>
+    -->
+    <a align="right" class="button button-icon icon ion-pinpoint" ng-click="changeCompassMode()"></a>
+</ion-nav-buttons>
+
+<ion-content class="" style="background-image: url('lib/compass/images/bg.jpg'); color:white;">
+    <br/><br/>
+    <div class="row" style="height:100px;">
+               <div class="col col-33">
+
+               </div>
+               <div class="col col-33" align="center">
+                    <img  ng-src="{{north_landscape_photo_status_img}}" ng-click="takePhotoForDirection('NORTH')" id="photoNorth" style="width:80%; height:90%"/>
+               </div>
+               <div class="col col-33">
+
+               </div>
+    </div>
+    <div class="row" style="height:100px;">
+               <div class="col col-33" align="right">
+                    <img  ng-src="{{west_landscape_photo_status_img}}" ng-click="takePhotoForDirection('WEST')" id="photoWest" style="width:80%; height:90%"/>
+               </div>
+               <div class="col col-33" align="center">
+
+               </div>
+               <div class="col col-33" align="left">
+                    <img  ng-src="{{east_landscape_photo_status_img}}" ng-click="takePhotoForDirection('EAST')" id="photoEast" style="width:80%; height:90%"/>
+               </div>
+    </div>
+    <div class="row" style="height:100px;">
+               <div class="col col-33">
+
+               </div>
+               <div class="col col-33" align="center">
+                    <img  ng-src="{{south_landscape_photo_status_img}}" ng-click="takePhotoForDirection('SOUTH')" id="photoSouth" style="width:80%; height:90%"/>
+               </div>
+               <div class="col col-33">
+
+               </div>
+    </div>
+	</div>
+	<br/>
+</ion-content>
+</ion-view>

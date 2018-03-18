@@ -1,0 +1,62 @@
+<link href="landinfo_css/results.css" rel="stylesheet">
+<link href="landinfo_css/common.css" rel="stylesheet">
+<ion-view view-title="" hide-back-button="true" align-title="center">
+  <ion-nav-title>
+    <p>&nbsp;Local Climate</p>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+  </ion-nav-buttons>
+  
+
+ <ion-content class="padding body" overflow-scroll="true">
+
+ <p align='center' class="lpks-climate"><b>Climate</b><i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.climate_source')" ></i></p>
+ <p class="lpks-p"> <B>{{label_precipication_graph}}</B></p>
+<div class="lpks-graph">
+	<canvas id="bar"
+	        class="chart chart-bar"
+	        chart-options="precip_bar_options"
+	        chart-data="data"
+	        chart-labels="labels"
+	        chart-caption="captions" chart-colours="precip_bar_colors"
+	>
+	</canvas>
+</div>
+<p align="center" class="lpks-p"> Month </p>
+
+<p class="lpks-p"><B>Temperature ({{label_degree}}) </B></p>
+
+<div class="lpks-graph">
+	<canvas id="line"
+	        class="chart chart-line"
+	        chart-options="temp_line_options"
+	        chart-data="linedata"
+	        chart-labels="names"
+	        chart-legend="true"
+	        chart-series="number"
+	        chart-click="onClick">
+	</canvas>
+</div>
+<p align="center" class="lpks-p"> Month </p>
+
+
+<p class="othercomponent">
+  Latitude :  {{plots.latitude.toFixed(5)}} </p>
+
+<p class="othercomponent">
+  Longitude : {{plots.longitude.toFixed(5)}} </p>
+<p ng-show="GLOBAL_METRIC_CONFIG === 'US_METRICS'" class="othercomponent">
+  Elevation (m) : {{plots.geospatial_data.gdal_elevation}} </p>
+<p ng-show="GLOBAL_METRIC_CONFIG === 'EN_METRICS'" class="othercomponent">
+  Elevation (ft) : {{plots.geospatial_data.gdal_elevation_ft}} </p>
+<p ng-show="GLOBAL_METRIC_CONFIG === 'US_METRICS'" class="othercomponent">
+  Average annual precipitation (mm) : {{plots.climate.precipitation.annual.toFixed(0)}} <i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.precip_source')" ></i></p>
+<p ng-show="GLOBAL_METRIC_CONFIG === 'EN_METRICS'" class="othercomponent">
+    Average annual precipitation (in) : {{plots.climate.precipitation.annual_in.toFixed(0)}} <i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.precip_source')" ></i></p>
+<p class="othercomponent">
+  Growing period (days/year): {{plots.geospatial_data.gdal_fao_lgp}} <i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.growing_period_source')" ></i></p>
+<p class="othercomponent">
+  Aridity index : {{plots.geospatial_data.gdal_aridity_index.toFixed(4)}} <i class="icon ion-help-circled dark " style="padding-left:10px;font-size:18px" ng-click="openHelp('landinfo_app.aridity_source')" ></i></p>
+  <br><br><br><br><br><br>
+        </ion-content>
+      </ion-view>

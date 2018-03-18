@@ -1,0 +1,38 @@
+<link href="landinfo_css/plots.css" rel="stylesheet">
+<link href="landinfo_css/common.css" rel="stylesheet">
+<ion-view hide-back-button="true" >
+<ion-nav-title>
+<p>{{labels.title}}</p>
+</ion-nav-title>
+
+<ion-content class="padding body" overflow-scroll="true" id="plotListContent">
+
+<ion-list>
+
+	<div ng-if="plots.length == 0"><H2>Looks like you haven't added any plots.</h2> </br>  <h2>Tap the + above to get started</h2></div>
+	<div class="list card" ng-repeat="plot in plots track by $index" ng-click="selectPlot(plot)">
+		<a href="#" class="item item-thumbnail-left ">
+
+			<img class="icon ion-image" style="height:90px;max-width:120px" src={{plot.googleMapImageURL}} onerror="this.src='landpks_img/favicon.ico'"/>
+
+
+			<h2 style="padding-left:40px" >{{plotname(plot.name)}}</h2>
+			<p style="padding-left:40px">{{labels.latitude}}: {{plot.latitude.toFixed(5)}}</p>
+			<p style="padding-left:40px">{{labels.longitude}}: {{plot.longitude.toFixed(5)}}</p>
+			<p style="padding-left:40px" >{{labels.upload_date}}: {{plot.insert_normal_time}}</p>
+			<P style="padding-left:40px">
+	    	
+	      <!--<span class="subdued">1 Like</span>
+	      <span class="subdued">5 Comments</span>-->
+      		<i ng-if="plot.status == 'CREATED' || plot.status == 'NOT_SYNCHRONIZED'" class="icon ion-android-sync energized" style="font-size: 24px"></i>
+			<i ng-if="plot.status != 'CREATED' && plot.status != 'NOT_SYNCHRONIZED'" class="icon ion-android-cloud-done" style="font-size: 24px"></i>
+			<!--<i class="icon ion-trash-b" style="font-size: 24px; margin-left:15px"></i>-->
+		    
+  			</p>
+		</a>
+	</div>
+
+</ion-list>
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,36 @@
+<link href="landinfo_css/photos.css" rel="stylesheet">
+<ion-view hide-back-button="true" view-title="" cache-view="false">
+
+<ion-nav-title>
+    <a align="left" class="button button-icon ion-ios-arrow-back" ng-click="goBack();"
+       style="padding-left:0px;width:3px;padding-top:5px"></a>
+    <a align="left" class="button button-icon" ng-click="saveLandScape_Photos();" s
+       tyle="padding-left:0px">
+       <img src="landinfo_img/ic_launcher.png" class="title-image" align="left">
+       <p style="padding-top:5px">  &nbsp;Save Landscape photos</p>
+    </a>
+</ion-nav-title>
+
+       <ion-content class="padding body" overflow-scroll="true">
+       <br/>
+       <br/>
+       <p class="lpks-p"> <b>Landscape North<b> <a  class="button icon ion-camera" ui-sref="landpks.landinfo_take_photo_landscape_north_browser"></a> </p>
+       <img  ng-src="{{landscape_north_photo_data_url}}" style="width:150px; height:100px" class="lpks-img">
+
+       <br/>
+
+       <p class="lpks-p"> <b>Landscape East<b> <a  class="button icon ion-camera" ui-sref="landpks.landinfo_take_photo_landscape_east_browser"></a> </p>
+       <img ng-src="{{landscape_east_photo_data_url}}" style="width:150px; height:100px; border:none" class="lpks-img">
+       <br>
+
+       <p class="lpks-p"> <b>Landscape South<b> <a  class="button icon ion-camera" ui-sref="landpks.landinfo_take_photo_landscape_south_browser"></a> </p>
+       <img ng-src="{{landscape_south_photo_data_url}}" style="width:150px; height:100px; border:none" class="lpks-img">
+       <br>
+
+       <p class="lpks-p"> <b>Landscape West<b> <a  class="button icon ion-camera" ui-sref="landpks.landinfo_take_photo_landscape_west_browser"></a> </p>
+       <img ng-src="{{landscape_west_photo_data_url}}" style="width:150px; height:100px; border:none" class="lpks-img">
+       <br>
+
+
+        </ion-content>
+      </ion-view>
